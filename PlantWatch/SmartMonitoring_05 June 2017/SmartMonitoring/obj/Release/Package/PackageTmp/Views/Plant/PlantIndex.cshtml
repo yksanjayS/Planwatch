@@ -1,0 +1,132 @@
+﻿@model List<SmartMonitoring.Models.Plant>
+
+@{
+    ViewBag.Title = "Plant";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts{
+    @Styles.Render("~/Content/jsTree/themes/proton/style.min.css")
+    @Scripts.Render("~/Scripts/jsTree3/jstree.min.js")
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<div class="container">
+    <div>
+        <legend id="lblDisplay" class="navbar-left" style="width:85%"> Plant</legend>
+        @if (Session["UserName"] != null)
+        {
+            if ((Session["UserRole"]).ToString() != "Employee")
+            {
+                <a href="@Url.Action("AddPlant", "Plant", new { area = "Categories" })" data-toggle="modal" data-target="#myModal" data-modal="myModal" title="Add New Plant" class="btn btn-success" style="margin-top:5px;margin-left:5px;">
+                    Add New Plant
+                </a>
+            }
+        }
+    </div>
+
+    <div class="row">
+        <div class="col-md-3" style="padding-bottom:5px;padding-top:5px;padding-left:0px;">
+            <div style="margin-bottom:3px;">
+            </div>
+            <div id="planttree">
+
+            </div>
+        </div>
+        <div class="col-md-9" style="border-left:solid 1px #4f9ae6;">
+            <div id="detailDisplay" class="row">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id='myModal' class="modal fade in">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="col-md-6" id="title"></h4>
+                <button type="button" style="padding-right: 10px; padding-top: 10px; color: red;" class="close" data-dismiss="modal" onclick="closeModal()">Close</button>
+            </div>
+            <div id='myModalContent'></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var selectednode = null;
+    $(document).ready(function () {
+        function addEventListener() {
+            $("#planttree").on("select_node.jstree", function (event, node) {
+                selectednode = node.instance.get_selected();
+                if (selectednode.length === 1) {
+                    ShowPlant(selectednode);
+                } else if (selectednode.length > 1) {
+                    alert("You have not selected anything !");
+                }
+            });
+        }
+        $(function () {
+            $('#planttree').jstree({
+                core: {
+                    themes: {
+                        'name': 'proton',
+                        'responsive': true,
+                        'check_callback': true
+                    },
+                    data: {
+                        dataType: "json",
+                        url: "/Plant/CreateTreeView",
+                        async: true
+                    }
+                    //rules: {
+                    //    metadata: "mdata",
+                    //    use_inline: true,
+                    //    clickable: ["all"],
+                    //    deletable: ["all"],
+                    //    renameable: ["all"],
+                    //    creatable: ["all"],
+                    //    draggable: ["all"],
+                    //    dragrules: ["child * child", "child inside root", "tree-drop inside root"],
+                    //    createat: ["top"],
+                    //    drag_button: "left",
+                    //    droppable: ["tree-drop"]
+                    //}
+                },
+                plugins: ["themes", "json_data", "ui", "state"]
+            });
+            addEventListener();
+        });
+    });
+
+    $(function () {
+        $.ajaxSetup({ cache: false });
+        $("a[data-modal]").on("click", function (e) {
+            $('#myModalContent').load(this.href, function () {
+                $('#myModal').toggle();
+                $('#myModal').modal({
+                    /*backdrop: 'static',*/
+                    keyboard: true
+                }, 'show');
+            });
+            return false;
+        });
+    });
+
+    function closeModal() {
+        $('#myModal').toggle();
+    }
+
+
+    //////////////////////// Function for show detail of selected Node////////////////////////
+
+    function ShowPlant(nodeid) {
+        $.ajax({
+            url: '/Plant/PlantDetail',
+            type: 'POST',
+            data: { 'nodeid': nodeid },
+            success: function (data) {
+                $('#detailDisplay').html('');
+                $('#detailDisplay').html(data);
+            }
+        });
+    }
+</script>

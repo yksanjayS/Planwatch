@@ -1,0 +1,737 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SmartMonitoringModelStoreContainer" CdmEntityContainer="SmartMonitoringEntities">
+    <EntitySetMapping Name="tblAreas">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.tblArea">
+        <MappingFragment StoreEntitySet="tblArea">
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="AreaDetail" ColumnName="AreaDetail" />
+          <ScalarProperty Name="NumberOfTrains" ColumnName="NumberOfTrains" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblLogins">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.tblLogin">
+        <MappingFragment StoreEntitySet="tblLogin">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+          <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMachines">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.tblMachine">
+        <MappingFragment StoreEntitySet="tblMachine">
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+          <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+          <ScalarProperty Name="MachineDetails" ColumnName="MachineDetails" />
+          <ScalarProperty Name="RPMDriven" ColumnName="RPMDriven" />
+          <ScalarProperty Name="PulseRevolution" ColumnName="PulseRevolution" />
+          <ScalarProperty Name="MachineImages" ColumnName="MachineImages" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPlants">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.tblPlant">
+        <MappingFragment StoreEntitySet="tblPlant">
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PlantID" ColumnName="PlantID" />
+          <ScalarProperty Name="PlantName" ColumnName="PlantName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="PlantDetails" ColumnName="PlantDetails" />
+          <ScalarProperty Name="NoOfArea" ColumnName="NoOfArea" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPoints">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.tblPoint">
+        <MappingFragment StoreEntitySet="tblPoint">
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PointID" ColumnName="PointID" />
+          <ScalarProperty Name="PointName" ColumnName="PointName" />
+          <ScalarProperty Name="PointDetails" ColumnName="PointDetails" />
+          <ScalarProperty Name="NoOfSensors" ColumnName="NoOfSensors" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSensors">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.tblSensor">
+        <MappingFragment StoreEntitySet="tblSensor">
+          <ScalarProperty Name="SensorUnit" ColumnName="SensorUnit" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="NCAID" ColumnName="NCAID" />
+          <ScalarProperty Name="VMUName" ColumnName="VMUName" />
+          <ScalarProperty Name="Sensitivity" ColumnName="Sensitivity" />
+          <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="SensorName" ColumnName="SensorName" />
+          <ScalarProperty Name="SensorDirection" ColumnName="SensorDirection" />
+          <ScalarProperty Name="SensorType" ColumnName="SensorType" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTrains">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.tblTrain">
+        <MappingFragment StoreEntitySet="tblTrain">
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TrainID" ColumnName="TrainID" />
+          <ScalarProperty Name="TrainName" ColumnName="TrainName" />
+          <ScalarProperty Name="NumberOfMachines" ColumnName="NumberOfMachines" />
+          <ScalarProperty Name="DriveUnitName" ColumnName="DriveUnitName" />
+          <ScalarProperty Name="IntermediateUnitName" ColumnName="IntermediateUnitName" />
+          <ScalarProperty Name="DrivenUnitName" ColumnName="DrivenUnitName" />
+          <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUserRegisters">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.tblUserRegister">
+        <MappingFragment StoreEntitySet="tblUserRegister">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="Userrole" ColumnName="Userrole" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+          <ScalarProperty Name="Companyname" ColumnName="Companyname" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserProfiles">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.UserProfile">
+        <MappingFragment StoreEntitySet="UserProfile">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="webpages_Membership">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.webpages_Membership">
+        <MappingFragment StoreEntitySet="webpages_Membership">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ConfirmationToken" ColumnName="ConfirmationToken" />
+          <ScalarProperty Name="IsConfirmed" ColumnName="IsConfirmed" />
+          <ScalarProperty Name="LastPasswordFailureDate" ColumnName="LastPasswordFailureDate" />
+          <ScalarProperty Name="PasswordFailuresSinceLastSuccess" ColumnName="PasswordFailuresSinceLastSuccess" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PasswordChangedDate" ColumnName="PasswordChangedDate" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="PasswordVerificationToken" ColumnName="PasswordVerificationToken" />
+          <ScalarProperty Name="PasswordVerificationTokenExpirationDate" ColumnName="PasswordVerificationTokenExpirationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="webpages_OAuthMembership">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.webpages_OAuthMembership">
+        <MappingFragment StoreEntitySet="webpages_OAuthMembership">
+          <ScalarProperty Name="Provider" ColumnName="Provider" />
+          <ScalarProperty Name="ProviderUserId" ColumnName="ProviderUserId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="webpages_Roles">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.webpages_Roles">
+        <MappingFragment StoreEntitySet="webpages_Roles">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMeasurementSetups">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.tblMeasurementSetup">
+        <MappingFragment StoreEntitySet="tblMeasurementSetup">
+          <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+          <ScalarProperty Name="SetupName" ColumnName="SetupName" />
+          <ScalarProperty Name="SetupType" ColumnName="SetupType" />
+          <ScalarProperty Name="SpectrumSchedule" ColumnName="SpectrumSchedule" />
+          <ScalarProperty Name="BandAlarmID" ColumnName="BandAlarmID" />
+          <ScalarProperty Name="EnvelopeAlarmID" ColumnName="EnvelopeAlarmID" />
+          <ScalarProperty Name="TrendAlarmID" ColumnName="TrendAlarmID" />
+          <ScalarProperty Name="TrendSchedule" ColumnName="TrendSchedule" />
+          <ScalarProperty Name="SpectrumUnit" ColumnName="SpectrumUnit" />
+          <ScalarProperty Name="TimeUnit" ColumnName="TimeUnit" />
+          <ScalarProperty Name="SpectrumDataUnit" ColumnName="SpectrumDataUnit" />
+          <ScalarProperty Name="TimeDataUnit" ColumnName="TimeDataUnit" />
+          <ScalarProperty Name="FaultFrequency" ColumnName="FaultFrequency" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPlantMasters">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.tblPlantMaster">
+        <MappingFragment StoreEntitySet="tblPlantMaster">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="PointID" ColumnName="PointID" />
+          <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+          <ScalarProperty Name="TrainID" ColumnName="TrainID" />
+          <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+          <ScalarProperty Name="PlantID" ColumnName="PlantID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="webpages_UsersInRoles" TypeName="SmartMonitoringModel.webpages_UsersInRoles" StoreEntitySet="webpages_UsersInRoles">
+      <EndProperty Name="webpages_Roles">
+        <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="UserProfile">
+        <ScalarProperty Name="UserId" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="AddArea" FunctionName="SmartMonitoringModel.Store.AddArea" />
+    <FunctionImportMapping FunctionImportName="AddMachine" FunctionName="SmartMonitoringModel.Store.AddMachine" />
+    <FunctionImportMapping FunctionImportName="AddPlant" FunctionName="SmartMonitoringModel.Store.AddPlant" />
+    <FunctionImportMapping FunctionImportName="AddPoint" FunctionName="SmartMonitoringModel.Store.AddPoint" />
+    <FunctionImportMapping FunctionImportName="AddSensor" FunctionName="SmartMonitoringModel.Store.AddSensor" />
+    <FunctionImportMapping FunctionImportName="AddTrain" FunctionName="SmartMonitoringModel.Store.AddTrain" />
+    <FunctionImportMapping FunctionImportName="AddUser" FunctionName="SmartMonitoringModel.Store.AddUser" />
+    <FunctionImportMapping FunctionImportName="CheckUserForLogin" FunctionName="SmartMonitoringModel.Store.CheckUserForLogin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.CheckUserForLogin_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+          <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+          <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DeletePlant" FunctionName="SmartMonitoringModel.Store.DeletePlant" />
+    <FunctionImportMapping FunctionImportName="GetPlant" FunctionName="SmartMonitoringModel.Store.GetPlant">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.GetPlant_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PlantID" ColumnName="PlantID" />
+          <ScalarProperty Name="PlantName" ColumnName="PlantName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="PlantDetails" ColumnName="PlantDetails" />
+          <ScalarProperty Name="NoOfArea" ColumnName="NoOfArea" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getUserDetail" FunctionName="SmartMonitoringModel.Store.getUserDetail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.getUserDetail_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="Userrole" ColumnName="Userrole" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+          <ScalarProperty Name="Companyname" ColumnName="Companyname" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UpdatePlant" FunctionName="SmartMonitoringModel.Store.UpdatePlant" />
+    <FunctionImportMapping FunctionImportName="updateUserProfile" FunctionName="SmartMonitoringModel.Store.updateUserProfile" />
+    <FunctionImportMapping FunctionImportName="DeleteNode" FunctionName="SmartMonitoringModel.Store.DeleteNode" />
+    <FunctionImportMapping FunctionImportName="GetAllPlantDetail" FunctionName="SmartMonitoringModel.Store.GetAllPlantDetail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.GetAllPlantDetail_Result1">
+          <ScalarProperty Name="NodeID" ColumnName="NodeID" />
+          <ScalarProperty Name="NodeText" ColumnName="NodeText" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetArea" FunctionName="SmartMonitoringModel.Store.GetArea">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.GetArea_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="AreaDetail" ColumnName="AreaDetail" />
+          <ScalarProperty Name="NumberOfTrains" ColumnName="NumberOfTrains" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetMachine" FunctionName="SmartMonitoringModel.Store.GetMachine">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.GetMachine_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+          <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+          <ScalarProperty Name="MachineDetails" ColumnName="MachineDetails" />
+          <ScalarProperty Name="RPMDriven" ColumnName="RPMDriven" />
+          <ScalarProperty Name="PulseRevolution" ColumnName="PulseRevolution" />
+          <ScalarProperty Name="MachineImages" ColumnName="MachineImages" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetPoint" FunctionName="SmartMonitoringModel.Store.GetPoint">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.GetPoint_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PointID" ColumnName="PointID" />
+          <ScalarProperty Name="PointName" ColumnName="PointName" />
+          <ScalarProperty Name="PointDetails" ColumnName="PointDetails" />
+          <ScalarProperty Name="NoOfSensors" ColumnName="NoOfSensors" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetTrain" FunctionName="SmartMonitoringModel.Store.GetTrain">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.GetTrain_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TrainID" ColumnName="TrainID" />
+          <ScalarProperty Name="TrainName" ColumnName="TrainName" />
+          <ScalarProperty Name="NumberOfMachines" ColumnName="NumberOfMachines" />
+          <ScalarProperty Name="DriveUnitName" ColumnName="DriveUnitName" />
+          <ScalarProperty Name="IntermediateUnitName" ColumnName="IntermediateUnitName" />
+          <ScalarProperty Name="DrivenUnitName" ColumnName="DrivenUnitName" />
+          <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tblRecordDatas">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.tblRecordData">
+        <MappingFragment StoreEntitySet="tblRecordData">
+          <ScalarProperty Name="AlarmID" ColumnName="AlarmID" />
+          <ScalarProperty Name="FFT_Y" ColumnName="FFT_Y" />
+          <ScalarProperty Name="FFT_X" ColumnName="FFT_X" />
+          <ScalarProperty Name="Time_Y" ColumnName="Time_Y" />
+          <ScalarProperty Name="OverallDataUnit" ColumnName="OverallDataUnit" />
+          <ScalarProperty Name="OverallValue" ColumnName="OverallValue" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="Time_X" ColumnName="Time_X" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+          <ScalarProperty Name="RecordTime" ColumnName="RecordTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblAlarmsDatas">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.tblAlarmsData">
+        <MappingFragment StoreEntitySet="tblAlarmsData">
+          <ScalarProperty Name="AlarmValue_Low" ColumnName="AlarmValue_Low" />
+          <ScalarProperty Name="AlarmValue_High" ColumnName="AlarmValue_High" />
+          <ScalarProperty Name="AlarmType" ColumnName="AlarmType" />
+          <ScalarProperty Name="AlarmName" ColumnName="AlarmName" />
+          <ScalarProperty Name="AlarmID" ColumnName="AlarmID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetAreaByPlantID" FunctionName="SmartMonitoringModel.Store.GetAreaByPlantID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.GetAreaByPlantID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="AreaDetail" ColumnName="AreaDetail" />
+          <ScalarProperty Name="NumberOfTrains" ColumnName="NumberOfTrains" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetMachineByTrainID" FunctionName="SmartMonitoringModel.Store.GetMachineByTrainID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.GetMachineByTrainID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+          <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+          <ScalarProperty Name="MachineDetails" ColumnName="MachineDetails" />
+          <ScalarProperty Name="RPMDriven" ColumnName="RPMDriven" />
+          <ScalarProperty Name="PulseRevolution" ColumnName="PulseRevolution" />
+          <ScalarProperty Name="MachineImages" ColumnName="MachineImages" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetPointByMachineID" FunctionName="SmartMonitoringModel.Store.GetPointByMachineID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.GetPointByMachineID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PointID" ColumnName="PointID" />
+          <ScalarProperty Name="PointName" ColumnName="PointName" />
+          <ScalarProperty Name="PointDetails" ColumnName="PointDetails" />
+          <ScalarProperty Name="NoOfSensors" ColumnName="NoOfSensors" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetSensorAverageOverallValue" FunctionName="SmartMonitoringModel.Store.GetSensorAverageOverallValue" />
+    <FunctionImportMapping FunctionImportName="GetSensorByPointID" FunctionName="SmartMonitoringModel.Store.GetSensorByPointID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.GetSensorByPointID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="SensorName" ColumnName="SensorName" />
+          <ScalarProperty Name="SensorDirection" ColumnName="SensorDirection" />
+          <ScalarProperty Name="SensorType" ColumnName="SensorType" />
+          <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Sensitivity" ColumnName="Sensitivity" />
+          <ScalarProperty Name="VMUName" ColumnName="VMUName" />
+          <ScalarProperty Name="NCAID" ColumnName="NCAID" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetTrainByAreaID" FunctionName="SmartMonitoringModel.Store.GetTrainByAreaID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.GetTrainByAreaID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TrainID" ColumnName="TrainID" />
+          <ScalarProperty Name="TrainName" ColumnName="TrainName" />
+          <ScalarProperty Name="NumberOfMachines" ColumnName="NumberOfMachines" />
+          <ScalarProperty Name="DriveUnitName" ColumnName="DriveUnitName" />
+          <ScalarProperty Name="IntermediateUnitName" ColumnName="IntermediateUnitName" />
+          <ScalarProperty Name="DrivenUnitName" ColumnName="DrivenUnitName" />
+          <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAlarmData" FunctionName="SmartMonitoringModel.Store.GetAlarmData">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.GetAlarmData_Result">
+          <ScalarProperty Name="AlarmID" ColumnName="AlarmID" />
+          <ScalarProperty Name="AlarmName" ColumnName="AlarmName" />
+          <ScalarProperty Name="AlarmType" ColumnName="AlarmType" />
+          <ScalarProperty Name="AlarmValue_High" ColumnName="AlarmValue_High" />
+          <ScalarProperty Name="AlarmValue_Low" ColumnName="AlarmValue_Low" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllSensorsByAreaID" FunctionName="SmartMonitoringModel.Store.GetAllSensorsByAreaID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.GetAllSensorsByAreaID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="PointID" ColumnName="PointID" />
+          <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+          <ScalarProperty Name="TrainID" ColumnName="TrainID" />
+          <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+          <ScalarProperty Name="PlantID" ColumnName="PlantID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAlarmIDForSensor" FunctionName="SmartMonitoringModel.Store.GetAlarmIDForSensor" />
+    <FunctionImportMapping FunctionImportName="GetSensorAverageOverallValueNew" FunctionName="SmartMonitoringModel.Store.GetSensorAverageOverallValueNew" />
+    <FunctionImportMapping FunctionImportName="GetAllSensorsByTrainID" FunctionName="SmartMonitoringModel.Store.GetAllSensorsByTrainID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.GetAllSensorsByTrainID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="PointID" ColumnName="PointID" />
+          <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+          <ScalarProperty Name="TrainID" ColumnName="TrainID" />
+          <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+          <ScalarProperty Name="PlantID" ColumnName="PlantID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAlarmIDForSensorNew" FunctionName="SmartMonitoringModel.Store.GetAlarmIDForSensorNew" />
+    <FunctionImportMapping FunctionImportName="GetSensorAvgOverallValueNew" FunctionName="SmartMonitoringModel.Store.GetSensorAvgOverallValueNew">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.GetSensorAvgOverallValueNew_Result">
+          <ScalarProperty Name="RecordTime" ColumnName="RecordTime" />
+          <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="OverallValue" ColumnName="OverallValue" />
+          <ScalarProperty Name="OverallDataUnit" ColumnName="OverallDataUnit" />
+          <ScalarProperty Name="Time_X" ColumnName="Time_X" />
+          <ScalarProperty Name="Time_Y" ColumnName="Time_Y" />
+          <ScalarProperty Name="FFT_X" ColumnName="FFT_X" />
+          <ScalarProperty Name="FFT_Y" ColumnName="FFT_Y" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="AlarmID" ColumnName="AlarmID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllSensorsByMachineID" FunctionName="SmartMonitoringModel.Store.GetAllSensorsByMachineID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.GetAllSensorsByMachineID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="PointID" ColumnName="PointID" />
+          <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+          <ScalarProperty Name="TrainID" ColumnName="TrainID" />
+          <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+          <ScalarProperty Name="PlantID" ColumnName="PlantID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetSensorAvgOverallValueForArea" FunctionName="SmartMonitoringModel.Store.GetSensorAvgOverallValueForArea">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.GetSensorAvgOverallValueForArea_Result">
+          <ScalarProperty Name="RecordTime" ColumnName="RecordTime" />
+          <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="OverallValue" ColumnName="OverallValue" />
+          <ScalarProperty Name="OverallDataUnit" ColumnName="OverallDataUnit" />
+          <ScalarProperty Name="Time_X" ColumnName="Time_X" />
+          <ScalarProperty Name="Time_Y" ColumnName="Time_Y" />
+          <ScalarProperty Name="FFT_X" ColumnName="FFT_X" />
+          <ScalarProperty Name="FFT_Y" ColumnName="FFT_Y" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="AlarmID" ColumnName="AlarmID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetSensorAvgOverallValueForMachine" FunctionName="SmartMonitoringModel.Store.GetSensorAvgOverallValueForMachine">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.GetSensorAvgOverallValueForMachine_Result">
+          <ScalarProperty Name="RecordTime" ColumnName="RecordTime" />
+          <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="OverallValue" ColumnName="OverallValue" />
+          <ScalarProperty Name="OverallDataUnit" ColumnName="OverallDataUnit" />
+          <ScalarProperty Name="Time_X" ColumnName="Time_X" />
+          <ScalarProperty Name="Time_Y" ColumnName="Time_Y" />
+          <ScalarProperty Name="FFT_X" ColumnName="FFT_X" />
+          <ScalarProperty Name="FFT_Y" ColumnName="FFT_Y" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="AlarmID" ColumnName="AlarmID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetSensorAvgOverallValueForPoint" FunctionName="SmartMonitoringModel.Store.GetSensorAvgOverallValueForPoint">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.GetSensorAvgOverallValueForPoint_Result">
+          <ScalarProperty Name="RecordTime" ColumnName="RecordTime" />
+          <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="OverallValue" ColumnName="OverallValue" />
+          <ScalarProperty Name="OverallDataUnit" ColumnName="OverallDataUnit" />
+          <ScalarProperty Name="Time_X" ColumnName="Time_X" />
+          <ScalarProperty Name="Time_Y" ColumnName="Time_Y" />
+          <ScalarProperty Name="FFT_X" ColumnName="FFT_X" />
+          <ScalarProperty Name="FFT_Y" ColumnName="FFT_Y" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="AlarmID" ColumnName="AlarmID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetSensorAvgOverallValueForTrain" FunctionName="SmartMonitoringModel.Store.GetSensorAvgOverallValueForTrain">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.GetSensorAvgOverallValueForTrain_Result">
+          <ScalarProperty Name="RecordTime" ColumnName="RecordTime" />
+          <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="OverallValue" ColumnName="OverallValue" />
+          <ScalarProperty Name="OverallDataUnit" ColumnName="OverallDataUnit" />
+          <ScalarProperty Name="Time_X" ColumnName="Time_X" />
+          <ScalarProperty Name="Time_Y" ColumnName="Time_Y" />
+          <ScalarProperty Name="FFT_X" ColumnName="FFT_X" />
+          <ScalarProperty Name="FFT_Y" ColumnName="FFT_Y" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="AlarmID" ColumnName="AlarmID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllSensorsByPointID" FunctionName="SmartMonitoringModel.Store.GetAllSensorsByPointID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.GetAllSensorsByPointID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="PointID" ColumnName="PointID" />
+          <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+          <ScalarProperty Name="TrainID" ColumnName="TrainID" />
+          <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+          <ScalarProperty Name="PlantID" ColumnName="PlantID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetRecordedDataBuSensorID" FunctionName="SmartMonitoringModel.Store.GetRecordedDataBuSensorID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.GetRecordedDataBuSensorID_Result">
+          <ScalarProperty Name="RecordTime" ColumnName="RecordTime" />
+          <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="OverallValue" ColumnName="OverallValue" />
+          <ScalarProperty Name="OverallDataUnit" ColumnName="OverallDataUnit" />
+          <ScalarProperty Name="Time_X" ColumnName="Time_X" />
+          <ScalarProperty Name="Time_Y" ColumnName="Time_Y" />
+          <ScalarProperty Name="FFT_X" ColumnName="FFT_X" />
+          <ScalarProperty Name="FFT_Y" ColumnName="FFT_Y" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="AlarmID" ColumnName="AlarmID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllSensorsByPointIDNew" FunctionName="SmartMonitoringModel.Store.GetAllSensorsByPointIDNew">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.GetAllSensorsByPointIDNew_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="SensorName" ColumnName="SensorName" />
+          <ScalarProperty Name="SensorDirection" ColumnName="SensorDirection" />
+          <ScalarProperty Name="SensorType" ColumnName="SensorType" />
+          <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Sensitivity" ColumnName="Sensitivity" />
+          <ScalarProperty Name="VMUName" ColumnName="VMUName" />
+          <ScalarProperty Name="NCAID" ColumnName="NCAID" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ResetCurrentPassword" FunctionName="SmartMonitoringModel.Store.ResetCurrentPassword" />
+    <FunctionImportMapping FunctionImportName="GetRecordedDataByPointID" FunctionName="SmartMonitoringModel.Store.GetRecordedDataByPointID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.GetRecordedDataByPointID_Result">
+          <ScalarProperty Name="RecordID" ColumnName="RecordID" />
+          <ScalarProperty Name="RecordedTime" ColumnName="RecordedTime" />
+          <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="AlarmID" ColumnName="AlarmID" />
+          <ScalarProperty Name="OverallUnit" ColumnName="OverallUnit" />
+          <ScalarProperty Name="OverallSensor1" ColumnName="OverallSensor1" />
+          <ScalarProperty Name="OverallSensor2" ColumnName="OverallSensor2" />
+          <ScalarProperty Name="OverallSensor3" ColumnName="OverallSensor3" />
+          <ScalarProperty Name="OverallSensor4" ColumnName="OverallSensor4" />
+          <ScalarProperty Name="OverallSensor5" ColumnName="OverallSensor5" />
+          <ScalarProperty Name="OverallSensor6" ColumnName="OverallSensor6" />
+          <ScalarProperty Name="OverallSensor7" ColumnName="OverallSensor7" />
+          <ScalarProperty Name="OverallSensor8" ColumnName="OverallSensor8" />
+          <ScalarProperty Name="Time_X1" ColumnName="Time_X1" />
+          <ScalarProperty Name="Time_X2" ColumnName="Time_X2" />
+          <ScalarProperty Name="Time_X3" ColumnName="Time_X3" />
+          <ScalarProperty Name="Time_X4" ColumnName="Time_X4" />
+          <ScalarProperty Name="Time_X5" ColumnName="Time_X5" />
+          <ScalarProperty Name="Time_X6" ColumnName="Time_X6" />
+          <ScalarProperty Name="Time_X7" ColumnName="Time_X7" />
+          <ScalarProperty Name="Time_X8" ColumnName="Time_X8" />
+          <ScalarProperty Name="Time_Y1" ColumnName="Time_Y1" />
+          <ScalarProperty Name="Time_Y2" ColumnName="Time_Y2" />
+          <ScalarProperty Name="Time_Y3" ColumnName="Time_Y3" />
+          <ScalarProperty Name="Time_Y4" ColumnName="Time_Y4" />
+          <ScalarProperty Name="Time_Y5" ColumnName="Time_Y5" />
+          <ScalarProperty Name="Time_Y6" ColumnName="Time_Y6" />
+          <ScalarProperty Name="Time_Y7" ColumnName="Time_Y7" />
+          <ScalarProperty Name="Time_Y8" ColumnName="Time_Y8" />
+          <ScalarProperty Name="FFT_X1" ColumnName="FFT_X1" />
+          <ScalarProperty Name="FFT_X2" ColumnName="FFT_X2" />
+          <ScalarProperty Name="FFT_X3" ColumnName="FFT_X3" />
+          <ScalarProperty Name="FFT_X4" ColumnName="FFT_X4" />
+          <ScalarProperty Name="FFT_X5" ColumnName="FFT_X5" />
+          <ScalarProperty Name="FFT_X6" ColumnName="FFT_X6" />
+          <ScalarProperty Name="FFT_X7" ColumnName="FFT_X7" />
+          <ScalarProperty Name="FFT_X8" ColumnName="FFT_X8" />
+          <ScalarProperty Name="FFT_Y1" ColumnName="FFT_Y1" />
+          <ScalarProperty Name="FFT_Y2" ColumnName="FFT_Y2" />
+          <ScalarProperty Name="FFT_Y3" ColumnName="FFT_Y3" />
+          <ScalarProperty Name="FFT_Y4" ColumnName="FFT_Y4" />
+          <ScalarProperty Name="FFT_Y5" ColumnName="FFT_Y5" />
+          <ScalarProperty Name="FFT_Y6" ColumnName="FFT_Y6" />
+          <ScalarProperty Name="FFT_Y7" ColumnName="FFT_Y7" />
+          <ScalarProperty Name="FFT_Y8" ColumnName="FFT_Y8" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tblOveralldatas">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.tblOveralldata">
+        <MappingFragment StoreEntitySet="tblOveralldata">
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="Overallvalue" ColumnName="Overallvalue" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="RecordID" ColumnName="RecordID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblRecordedDatas">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.tblRecordedData">
+        <MappingFragment StoreEntitySet="tblRecordedData">
+          <ScalarProperty Name="OverallSensor8" ColumnName="OverallSensor8" />
+          <ScalarProperty Name="OverallSensor7" ColumnName="OverallSensor7" />
+          <ScalarProperty Name="OverallSensor6" ColumnName="OverallSensor6" />
+          <ScalarProperty Name="OverallSensor5" ColumnName="OverallSensor5" />
+          <ScalarProperty Name="OverallSensor4" ColumnName="OverallSensor4" />
+          <ScalarProperty Name="OverallSensor3" ColumnName="OverallSensor3" />
+          <ScalarProperty Name="OverallSensor2" ColumnName="OverallSensor2" />
+          <ScalarProperty Name="OverallSensor1" ColumnName="OverallSensor1" />
+          <ScalarProperty Name="AlarmID" ColumnName="AlarmID" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+          <ScalarProperty Name="RecordedTime" ColumnName="RecordedTime" />
+          <ScalarProperty Name="RecordID" ColumnName="RecordID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetRecordedTimeByPointID" FunctionName="SmartMonitoringModel.Store.GetRecordedTimeByPointID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.GetRecordedTimeByPointID_Result">
+          <ScalarProperty Name="RecordID" ColumnName="RecordID" />
+          <ScalarProperty Name="RecordedTime" ColumnName="RecordedTime" />
+          <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="AlarmID" ColumnName="AlarmID" />
+          <ScalarProperty Name="OverallSensor1" ColumnName="OverallSensor1" />
+          <ScalarProperty Name="OverallSensor2" ColumnName="OverallSensor2" />
+          <ScalarProperty Name="OverallSensor3" ColumnName="OverallSensor3" />
+          <ScalarProperty Name="OverallSensor4" ColumnName="OverallSensor4" />
+          <ScalarProperty Name="OverallSensor5" ColumnName="OverallSensor5" />
+          <ScalarProperty Name="OverallSensor6" ColumnName="OverallSensor6" />
+          <ScalarProperty Name="OverallSensor7" ColumnName="OverallSensor7" />
+          <ScalarProperty Name="OverallSensor8" ColumnName="OverallSensor8" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetOverallByRecordID" FunctionName="SmartMonitoringModel.Store.GetOverallByRecordID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.GetOverallByRecordID_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RecordID" ColumnName="RecordID" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="Overallvalue" ColumnName="Overallvalue" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

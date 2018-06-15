@@ -1,0 +1,121 @@
+﻿@model IEnumerable<SmartMonitoring.Models.TrendDashboard>
+@using JQChart.Web.Mvc
+@{var grid = new WebGrid(source: Model, ajaxUpdateContainerId: "dataGrid", canPage: true, rowsPerPage: 10);
+    grid.Pager(WebGridPagerModes.All);
+}
+@{
+    var chartTitle = ViewBag.Title;
+}
+<div class="row" style="margin-bottom:10px;">
+    <div id="chartDiv" class="row">
+        <div>
+            @(Html.JQChart()
+                .Chart(Model)
+                .ID("jqChart")
+                .Height(300)
+                .Title((string)chartTitle)
+                .Legend(legend => legend.Location(LegendLocation.Top))
+                 .Legend(legend => legend.Title("Sensors"))
+                .Animation(TimeSpan.FromSeconds(1))
+                .Tooltips(el => el.TooltipsType(TooltipsType.Shared))
+                .Axes(axis =>
+                {
+                    axis.DateTimeAxis(Location.Bottom).Labels(el => el.StringFormat("d/m/yy hh:mm:ss"));
+                }
+                )
+                .Border(border => border.StrokeStyle("lightgray"))
+                .Background(background => background.LinearGradient().ColorStops(stop =>
+                {
+                    stop.Add(0, "white");
+                    stop.Add(1, "white");
+                }))
+                .Series(series =>
+                {
+                    foreach (var sensor in Model)
+                    {
+                        if (sensor.SensorList[0].ToString() != null)
+                        {
+                            series.Line().Title(sensor.SensorList[0].ToString())
+                                        .XValues(el => el.ValueX)
+                                        .YValues(el => el.ValueY1)
+                                         .NullHandling(NullHandling.Connect);
+                        }
+                        if (sensor.SensorList[1].ToString() != null)
+                        {
+                            series.Line().Title((string)sensor.SensorList[1].ToString())
+                                   .XValues(el => el.ValueX)
+                                   .YValues(el => el.ValueY2)
+                                   .NullHandling(NullHandling.Connect);
+                        }
+                        if (sensor.SensorList[2].ToString() != null)
+                        {
+                            series.Line().Title((string)sensor.SensorList[2].ToString())
+                                .XValues(el => el.ValueX)
+                                .YValues(el => el.ValueY3)
+                                .NullHandling(NullHandling.Connect);
+                        }
+                        if (sensor.SensorList[3].ToString() != null)
+                        {
+                            series.Line().Title((string)sensor.SensorList[3].ToString())
+                              .XValues(el => el.ValueX)
+                              .YValues(el => el.ValueY4)
+                              .NullHandling(NullHandling.Connect);
+                        }
+                        if (sensor.SensorList[4].ToString() != null)
+                        {
+                            series.Line().Title((string)sensor.SensorList[4].ToString())
+                              .XValues(el => el.ValueX)
+                              .YValues(el => el.ValueY5)
+                              .NullHandling(NullHandling.Connect);
+                        }
+                        if (sensor.SensorList[5].ToString() != null)
+                        {
+                            series.Line().Title((string)sensor.SensorList[5].ToString())
+                              .XValues(el => el.ValueX)
+                              .YValues(el => el.ValueY6)
+                              .NullHandling(NullHandling.Connect);
+                        }
+                        if (sensor.SensorList[6].ToString() != null)
+                        {
+                            series.Line().Title((string)sensor.SensorList[6].ToString())
+                              .XValues(el => el.ValueX)
+                              .YValues(el => el.ValueY7)
+                              .NullHandling(NullHandling.Connect);
+                        }
+                        if (sensor.SensorList[7].ToString() != null)
+                        {
+                            series.Line().Title((string)sensor.SensorList[7].ToString())
+                              .XValues(el => el.ValueX)
+                              .YValues(el => el.ValueY8)
+                              .NullHandling(NullHandling.Connect);
+                        }
+                    }
+                }
+                )
+                .Render()
+            )
+        </div>
+
+    </div>
+</div>
+<div class="row">
+    <div id="gridDiv" class="row" style="margin-top:10px;">
+        @{
+
+            Html.RenderAction("GetOverallData");
+        }
+    </div>
+</div>
+
+
+
+<script lang="javascript" type="text/javascript">
+    $(document).ready(function () {
+        $('#pieChart').bind('tooltipFormat', function (e, data) {
+            var percentage = data.series.getPercentage(data.value);
+            percentage = data.chart.stringFormat(percentage, '%.2f%%');
+            return '<b>' + data.dataItem[0] + '</b><br />' +
+                       data.value + ' (' + percentage + ')';
+        });
+    });
+</script>

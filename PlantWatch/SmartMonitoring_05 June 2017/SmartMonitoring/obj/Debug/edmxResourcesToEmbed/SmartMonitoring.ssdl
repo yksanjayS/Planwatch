@@ -1,0 +1,554 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SmartMonitoringModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblArea">
+    <Key>
+      <PropertyRef Name="AreaID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="AreaID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="AreaName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="AreaDetail" Type="varchar(max)" />
+    <Property Name="NumberOfTrains" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblLogin">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="UserStatus" Type="bit" Nullable="false" />
+    <Property Name="LoginID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserRole" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblMachine">
+    <Key>
+      <PropertyRef Name="MachineID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="MachineID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MachineName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="MachineDetails" Type="varchar(max)" Nullable="false" />
+    <Property Name="RPMDriven" Type="int" Nullable="false" />
+    <Property Name="PulseRevolution" Type="int" Nullable="false" />
+    <Property Name="MachineImages" Type="image" />
+    <Property Name="CreateDate" Type="date" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SmartMonitoring.dbo.tblMeasurementSetup' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tblMeasurementSetup">
+    <Key>
+      <PropertyRef Name="SetupID" />
+      <PropertyRef Name="SetupName" />
+      <PropertyRef Name="SetupType" />
+      <PropertyRef Name="SpectrumSchedule" />
+      <PropertyRef Name="BandAlarmID" />
+      <PropertyRef Name="EnvelopeAlarmID" />
+      <PropertyRef Name="TrendAlarmID" />
+      <PropertyRef Name="TrendSchedule" />
+      <PropertyRef Name="SpectrumUnit" />
+      <PropertyRef Name="TimeUnit" />
+      <PropertyRef Name="SpectrumDataUnit" />
+      <PropertyRef Name="TimeDataUnit" />
+      <PropertyRef Name="FaultFrequency" />
+    </Key>
+    <Property Name="SetupID" Type="int" Nullable="false" />
+    <Property Name="SetupName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SetupType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SpectrumSchedule" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BandAlarmID" Type="int" Nullable="false" />
+    <Property Name="EnvelopeAlarmID" Type="int" Nullable="false" />
+    <Property Name="TrendAlarmID" Type="int" Nullable="false" />
+    <Property Name="TrendSchedule" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SpectrumUnit" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TimeUnit" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SpectrumDataUnit" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TimeDataUnit" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FaultFrequency" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblPlant">
+    <Key>
+      <PropertyRef Name="PlantID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="PlantID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PlantName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Address" Type="varchar(max)" Nullable="false" />
+    <Property Name="ContactNo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FaxNo" Type="varchar" MaxLength="50" />
+    <Property Name="Website" Type="varchar" MaxLength="100" />
+    <Property Name="PlantDetails" Type="varchar(max)" />
+    <Property Name="NoOfArea" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="date" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SmartMonitoring.dbo.tblPlantMaster' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tblPlantMaster">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="PlantID" />
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SensorID" Type="varchar" MaxLength="20" />
+    <Property Name="PointID" Type="varchar" MaxLength="20" />
+    <Property Name="MachineID" Type="varchar" MaxLength="20" />
+    <Property Name="TrainID" Type="varchar" MaxLength="20" />
+    <Property Name="AreaID" Type="varchar" MaxLength="20" />
+    <Property Name="PlantID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="UserID" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblPoint">
+    <Key>
+      <PropertyRef Name="PointID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="PointID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PointName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="PointDetails" Type="varchar(max)" Nullable="false" />
+    <Property Name="NoOfSensors" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblSensor">
+    <Key>
+      <PropertyRef Name="SensorID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="SensorID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="SensorName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SensorDirection" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SensorType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AcquisitionID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CreateDate" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblTrain">
+    <Key>
+      <PropertyRef Name="TrainID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="TrainID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TrainName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="NumberOfMachines" Type="int" Nullable="false" />
+    <Property Name="DriveUnitName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="IntermediateUnitName" Type="varchar(max)" Nullable="false" />
+    <Property Name="DrivenUnitName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Createdate" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblUserRegister">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Lastname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MiddleName" Type="varchar" MaxLength="50" />
+    <Property Name="Userrole" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PhoneNo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="FaxNo" Type="varchar" MaxLength="20" />
+    <Property Name="Companyname" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Designation" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Department" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmailID" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="UserStatus" Type="bit" Nullable="false" />
+    <Property Name="CreateDate" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="56" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="128" />
+    <Property Name="IsConfirmed" Type="bit" />
+    <Property Name="LastPasswordFailureDate" Type="datetime" />
+    <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PasswordChangedDate" Type="datetime" />
+    <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
+    <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="webpages_OAuthMembership">
+    <Key>
+      <PropertyRef Name="Provider" />
+      <PropertyRef Name="ProviderUserId" />
+    </Key>
+    <Property Name="Provider" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="ProviderUserId" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="webpages_UsersInRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="fk_RoleId">
+    <End Role="webpages_Roles" Type="Self.webpages_Roles" Multiplicity="1" />
+    <End Role="webpages_UsersInRoles" Type="Self.webpages_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="webpages_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="webpages_UsersInRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblLogin_tblLogin">
+    <End Role="tblUserRegister" Type="Self.tblUserRegister" Multiplicity="1" />
+    <End Role="tblLogin" Type="Self.tblLogin" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tblUserRegister">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="tblLogin">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblPoint_tblPoint">
+    <End Role="tblPoint" Type="Self.tblPoint" Multiplicity="1" />
+    <End Role="tblPoint1" Type="Self.tblPoint" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tblPoint">
+        <PropertyRef Name="PointID" />
+      </Principal>
+      <Dependent Role="tblPoint1">
+        <PropertyRef Name="PointID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblUserRegister_tblUserRegister">
+    <End Role="tblUserRegister" Type="Self.tblUserRegister" Multiplicity="1" />
+    <End Role="tblUserRegister1" Type="Self.tblUserRegister" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tblUserRegister">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="tblUserRegister1">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_UserId">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+    <End Role="webpages_UsersInRoles" Type="Self.webpages_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="webpages_UsersInRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Master_Area">
+    <End Role="tblArea" Type="Self.tblArea" Multiplicity="0..1" />
+    <End Role="tblPlantMaster" Type="Self.tblPlantMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblArea">
+        <PropertyRef Name="AreaID" />
+      </Principal>
+      <Dependent Role="tblPlantMaster">
+        <PropertyRef Name="AreaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Master_Machine">
+    <End Role="tblMachine" Type="Self.tblMachine" Multiplicity="0..1" />
+    <End Role="tblPlantMaster" Type="Self.tblPlantMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblMachine">
+        <PropertyRef Name="MachineID" />
+      </Principal>
+      <Dependent Role="tblPlantMaster">
+        <PropertyRef Name="MachineID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Master_Plant">
+    <End Role="tblPlant" Type="Self.tblPlant" Multiplicity="1" />
+    <End Role="tblPlantMaster" Type="Self.tblPlantMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPlant">
+        <PropertyRef Name="PlantID" />
+      </Principal>
+      <Dependent Role="tblPlantMaster">
+        <PropertyRef Name="PlantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Master_Point">
+    <End Role="tblPoint" Type="Self.tblPoint" Multiplicity="0..1" />
+    <End Role="tblPlantMaster" Type="Self.tblPlantMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblPoint">
+        <PropertyRef Name="PointID" />
+      </Principal>
+      <Dependent Role="tblPlantMaster">
+        <PropertyRef Name="PointID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Master_Sensor">
+    <End Role="tblSensor" Type="Self.tblSensor" Multiplicity="0..1" />
+    <End Role="tblPlantMaster" Type="Self.tblPlantMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblSensor">
+        <PropertyRef Name="SensorID" />
+      </Principal>
+      <Dependent Role="tblPlantMaster">
+        <PropertyRef Name="SensorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Master_Train">
+    <End Role="tblTrain" Type="Self.tblTrain" Multiplicity="0..1" />
+    <End Role="tblPlantMaster" Type="Self.tblPlantMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblTrain">
+        <PropertyRef Name="TrainID" />
+      </Principal>
+      <Dependent Role="tblPlantMaster">
+        <PropertyRef Name="TrainID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Master_User">
+    <End Role="tblUserRegister" Type="Self.tblUserRegister" Multiplicity="1" />
+    <End Role="tblPlantMaster" Type="Self.tblPlantMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUserRegister">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="tblPlantMaster">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="AddArea" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Action" Type="varchar" Mode="In" />
+    <Parameter Name="UserID" Type="varchar" Mode="In" />
+    <Parameter Name="AreaID" Type="varchar" Mode="In" />
+    <Parameter Name="AreaName" Type="varchar" Mode="In" />
+    <Parameter Name="AreaDetail" Type="varchar(max)" Mode="In" />
+    <Parameter Name="NumberOfTrains" Type="int" Mode="In" />
+    <Parameter Name="UserRole" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AddMachine" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Action" Type="varchar" Mode="In" />
+    <Parameter Name="UserID" Type="varchar" Mode="In" />
+    <Parameter Name="MachineID" Type="varchar" Mode="In" />
+    <Parameter Name="MachineName" Type="varchar" Mode="In" />
+    <Parameter Name="MachineDetails" Type="varchar(max)" Mode="In" />
+    <Parameter Name="RPMDriven" Type="int" Mode="In" />
+    <Parameter Name="PulseRevolution" Type="int" Mode="In" />
+    <Parameter Name="MachineImages" Type="image" Mode="In" />
+    <Parameter Name="UserRole" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AddPlant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="varchar" Mode="In" />
+    <Parameter Name="PlantName" Type="varchar" Mode="In" />
+    <Parameter Name="Address" Type="varchar(max)" Mode="In" />
+    <Parameter Name="ContactNo" Type="varchar" Mode="In" />
+    <Parameter Name="FaxNo" Type="varchar" Mode="In" />
+    <Parameter Name="Website" Type="varchar" Mode="In" />
+    <Parameter Name="PlantDetail" Type="varchar(max)" Mode="In" />
+    <Parameter Name="NoOfArea" Type="int" Mode="In" />
+    <Parameter Name="UserRole" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AddPoint" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Action" Type="varchar" Mode="In" />
+    <Parameter Name="UserID" Type="varchar" Mode="In" />
+    <Parameter Name="PointID" Type="varchar" Mode="In" />
+    <Parameter Name="PointName" Type="varchar" Mode="In" />
+    <Parameter Name="PointDetail" Type="varchar(max)" Mode="In" />
+    <Parameter Name="NoOfSensors" Type="int" Mode="In" />
+    <Parameter Name="UserRole" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AddSensor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Action" Type="varchar" Mode="In" />
+    <Parameter Name="UserID" Type="varchar" Mode="In" />
+    <Parameter Name="SensorID" Type="varchar" Mode="In" />
+    <Parameter Name="SensorName" Type="varchar" Mode="In" />
+    <Parameter Name="SensorDirection" Type="varchar" Mode="In" />
+    <Parameter Name="SensorType" Type="varchar" Mode="In" />
+    <Parameter Name="AcquisitionID" Type="varchar" Mode="In" />
+    <Parameter Name="UserRole" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AddTrain" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Action" Type="varchar" Mode="In" />
+    <Parameter Name="UserID" Type="varchar" Mode="In" />
+    <Parameter Name="TrainID" Type="varchar" Mode="In" />
+    <Parameter Name="TrainName" Type="varchar" Mode="In" />
+    <Parameter Name="NumberOfMachines" Type="int" Mode="In" />
+    <Parameter Name="DriveUnitName" Type="varchar" Mode="In" />
+    <Parameter Name="IntermediateUnitName" Type="varchar(max)" Mode="In" />
+    <Parameter Name="DrivenUnitName" Type="varchar" Mode="In" />
+    <Parameter Name="UserRole" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="AddUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FirstName" Type="varchar" Mode="In" />
+    <Parameter Name="LastName" Type="varchar" Mode="In" />
+    <Parameter Name="MiddleName" Type="varchar" Mode="In" />
+    <Parameter Name="LoginID" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+    <Parameter Name="Userrole" Type="varchar" Mode="In" />
+    <Parameter Name="PhoneNo" Type="varchar" Mode="In" />
+    <Parameter Name="FaxNo" Type="varchar" Mode="In" />
+    <Parameter Name="Companyname" Type="varchar" Mode="In" />
+    <Parameter Name="Designation" Type="varchar" Mode="In" />
+    <Parameter Name="Department" Type="varchar" Mode="In" />
+    <Parameter Name="EmailID" Type="varchar" Mode="In" />
+    <Parameter Name="UserStatus" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="CheckUserForLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LoginID" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+    <Parameter Name="UserStatus" Type="bit" Mode="InOut" />
+  </Function>
+  <Function Name="DeletePlant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PlantID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="GetPlant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PlantID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="getUserDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="UpdatePlant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="varchar" Mode="In" />
+    <Parameter Name="PlantName" Type="varchar" Mode="In" />
+    <Parameter Name="Address" Type="varchar(max)" Mode="In" />
+    <Parameter Name="ContactNo" Type="varchar" Mode="In" />
+    <Parameter Name="FaxNo" Type="varchar" Mode="In" />
+    <Parameter Name="Website" Type="varchar" Mode="In" />
+    <Parameter Name="PlantDetail" Type="varchar(max)" Mode="In" />
+    <Parameter Name="NOfArea" Type="int" Mode="In" />
+    <Parameter Name="UserRole" Type="varchar" Mode="In" />
+    <Parameter Name="PlantID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="updateUserProfile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FirstName" Type="varchar" Mode="In" />
+    <Parameter Name="LastName" Type="varchar" Mode="In" />
+    <Parameter Name="MiddleName" Type="varchar" Mode="In" />
+    <Parameter Name="UserID" Type="varchar" Mode="In" />
+    <Parameter Name="Userrole" Type="varchar" Mode="In" />
+    <Parameter Name="PhoneNo" Type="varchar" Mode="In" />
+    <Parameter Name="FaxNo" Type="varchar" Mode="In" />
+    <Parameter Name="Companyname" Type="varchar" Mode="In" />
+    <Parameter Name="Designation" Type="varchar" Mode="In" />
+    <Parameter Name="Department" Type="varchar" Mode="In" />
+    <Parameter Name="EmailID" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="SmartMonitoringModelStoreContainer">
+    <EntitySet Name="tblArea" EntityType="Self.tblArea" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblLogin" EntityType="Self.tblLogin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblMachine" EntityType="Self.tblMachine" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPlant" EntityType="Self.tblPlant" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPoint" EntityType="Self.tblPoint" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSensor" EntityType="Self.tblSensor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblTrain" EntityType="Self.tblTrain" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblUserRegister" EntityType="Self.tblUserRegister" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_OAuthMembership" EntityType="Self.webpages_OAuthMembership" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_Roles" EntityType="Self.webpages_Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="webpages_UsersInRoles" EntityType="Self.webpages_UsersInRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblMeasurementSetup" EntityType="Self.tblMeasurementSetup" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tblMeasurementSetup].[SetupID] AS [SetupID], 
+    [tblMeasurementSetup].[SetupName] AS [SetupName], 
+    [tblMeasurementSetup].[SetupType] AS [SetupType], 
+    [tblMeasurementSetup].[SpectrumSchedule] AS [SpectrumSchedule], 
+    [tblMeasurementSetup].[BandAlarmID] AS [BandAlarmID], 
+    [tblMeasurementSetup].[EnvelopeAlarmID] AS [EnvelopeAlarmID], 
+    [tblMeasurementSetup].[TrendAlarmID] AS [TrendAlarmID], 
+    [tblMeasurementSetup].[TrendSchedule] AS [TrendSchedule], 
+    [tblMeasurementSetup].[SpectrumUnit] AS [SpectrumUnit], 
+    [tblMeasurementSetup].[TimeUnit] AS [TimeUnit], 
+    [tblMeasurementSetup].[SpectrumDataUnit] AS [SpectrumDataUnit], 
+    [tblMeasurementSetup].[TimeDataUnit] AS [TimeDataUnit], 
+    [tblMeasurementSetup].[FaultFrequency] AS [FaultFrequency]
+    FROM [dbo].[tblMeasurementSetup] AS [tblMeasurementSetup]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="tblPlantMaster" EntityType="Self.tblPlantMaster" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tblPlantMaster].[ID] AS [ID], 
+    [tblPlantMaster].[SensorID] AS [SensorID], 
+    [tblPlantMaster].[PointID] AS [PointID], 
+    [tblPlantMaster].[MachineID] AS [MachineID], 
+    [tblPlantMaster].[TrainID] AS [TrainID], 
+    [tblPlantMaster].[AreaID] AS [AreaID], 
+    [tblPlantMaster].[PlantID] AS [PlantID], 
+    [tblPlantMaster].[UserID] AS [UserID]
+    FROM [dbo].[tblPlantMaster] AS [tblPlantMaster]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="fk_RoleId" Association="Self.fk_RoleId">
+      <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+      <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblLogin_tblLogin" Association="Self.FK_tblLogin_tblLogin">
+      <End Role="tblUserRegister" EntitySet="tblUserRegister" />
+      <End Role="tblLogin" EntitySet="tblLogin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblPoint_tblPoint" Association="Self.FK_tblPoint_tblPoint">
+      <End Role="tblPoint" EntitySet="tblPoint" />
+      <End Role="tblPoint1" EntitySet="tblPoint" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblUserRegister_tblUserRegister" Association="Self.FK_tblUserRegister_tblUserRegister">
+      <End Role="tblUserRegister" EntitySet="tblUserRegister" />
+      <End Role="tblUserRegister1" EntitySet="tblUserRegister" />
+    </AssociationSet>
+    <AssociationSet Name="fk_UserId" Association="Self.fk_UserId">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="Master_Area" Association="Self.Master_Area">
+      <End Role="tblArea" EntitySet="tblArea" />
+      <End Role="tblPlantMaster" EntitySet="tblPlantMaster" />
+    </AssociationSet>
+    <AssociationSet Name="Master_Machine" Association="Self.Master_Machine">
+      <End Role="tblMachine" EntitySet="tblMachine" />
+      <End Role="tblPlantMaster" EntitySet="tblPlantMaster" />
+    </AssociationSet>
+    <AssociationSet Name="Master_Plant" Association="Self.Master_Plant">
+      <End Role="tblPlant" EntitySet="tblPlant" />
+      <End Role="tblPlantMaster" EntitySet="tblPlantMaster" />
+    </AssociationSet>
+    <AssociationSet Name="Master_Point" Association="Self.Master_Point">
+      <End Role="tblPoint" EntitySet="tblPoint" />
+      <End Role="tblPlantMaster" EntitySet="tblPlantMaster" />
+    </AssociationSet>
+    <AssociationSet Name="Master_Sensor" Association="Self.Master_Sensor">
+      <End Role="tblSensor" EntitySet="tblSensor" />
+      <End Role="tblPlantMaster" EntitySet="tblPlantMaster" />
+    </AssociationSet>
+    <AssociationSet Name="Master_Train" Association="Self.Master_Train">
+      <End Role="tblTrain" EntitySet="tblTrain" />
+      <End Role="tblPlantMaster" EntitySet="tblPlantMaster" />
+    </AssociationSet>
+    <AssociationSet Name="Master_User" Association="Self.Master_User">
+      <End Role="tblUserRegister" EntitySet="tblUserRegister" />
+      <End Role="tblPlantMaster" EntitySet="tblPlantMaster" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

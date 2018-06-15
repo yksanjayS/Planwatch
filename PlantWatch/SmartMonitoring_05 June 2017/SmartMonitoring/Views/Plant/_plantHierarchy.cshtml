@@ -1,0 +1,92 @@
+﻿@*@model IEnumerable<SmartMonitoring.Models.Plant>*@
+
+@*<script src="~/Scripts/jquery-3.1.1.min.js"></script>*@
+
+
+    <div class="row">
+        <div id="planttree">
+        </div>
+    </div>
+<script>
+    var selectednode = null;
+    $(document).ready(function () {
+        function addEventListener() {
+            $("#planttree").on("select_node.jstree", function (event, node) {
+                selectednode = node.instance.get_selected();
+                if (selectednode.length === 1) {
+                    ShowPlant(selectednode);
+                } else if (selectednode.length > 1) {
+                    alert("You have not selected anything !");
+                }
+            });
+        }
+        $(function () {
+            $('#planttree').jstree({
+                core: {
+                    themes: {
+                        'name': 'proton',
+                        'responsive': true,
+                        'check_callback': true
+                    },
+                    data: {
+                        dataType: "json",
+                        url: "/Plant/CreateTreeView",
+                        async: true
+                    },
+                    rules: {
+                        metadata: "mdata",
+                        use_inline: true,
+                        clickable: ["all"],
+                        deletable: ["all"],
+                        renameable: ["all"],
+                        creatable: ["all"],
+                        draggable: ["all"],
+                        dragrules: ["child * child", "child inside root", "tree-drop inside root"],
+                        createat: ["top"],
+                        drag_button: "left",
+                        droppable: ["tree-drop"]
+                    }
+                },
+                //plugins: ["themes", "json_data", "ui", "state", "contextmenu"],
+                plugins: [ "state"],
+                callback: {
+                    onmove: function (NODE, REF_NODE, TYPE, TREE_OBJ, RB) {
+                        var parent_id = 0;
+                        if (TYPE === "inside") {
+                            parent_id = $(REF_NODE).attr('id');
+                        }
+                        saveHiearchy(NODE.id, parent_id);
+                    },
+                    onrename: function (NODE, LANG, TREE_OBJ, RB) {
+                        renameNode(NODE.id, $(NODE.innerHTML).filter("a")[0].innerText);
+                    },
+                    oncreate: function (NODE, REF_NODE, TYPE, TREE_OBJ, RB) {
+                        var parent_id = 0;
+                        if (TYPE === "inside") {
+                            parent_id = $(REF_NODE).attr('id');
+                        }
+                        createNode(NODE, parent_id);
+                    },
+                    ondelete: function (NODE, TREE_OBJ, RB) {
+                        deleteSubNode(NODE.id);
+                    }
+                }
+            });
+            addEventListener();
+        });
+    });
+
+    //////////////////////// Function for show detail of selected Node////////////////////////
+
+    function ShowPlant(nodeid) {
+        $.ajax({
+            url: 'Plant/PlantDetail',
+            type: 'POST',
+            data: { 'nodeid': nodeid },
+            success: function (data) {
+                $('#detailDisplay').html('');
+                $('#detailDisplay').html(data);
+            }
+        });
+    }
+</script>

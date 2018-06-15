@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SmartMonitoringModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblLogin">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserStatus" Type="Boolean" Nullable="false" />
+    <Property Name="LoginID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserRole" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tblUserRegister" Relationship="Self.FK_tblLogin_tblLogin" FromRole="tblLogin" ToRole="tblUserRegister" />
+  </EntityType>
+  <EntityType Name="tblUserRegister">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Userrole" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PhoneNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FaxNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Companyname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmailID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserStatus" Type="Boolean" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="tblLogin" Relationship="Self.FK_tblLogin_tblLogin" FromRole="tblUserRegister" ToRole="tblLogin" />
+    <NavigationProperty Name="tblUserRegister1" Relationship="Self.FK_tblUserRegister_tblUserRegister" FromRole="tblUserRegister" ToRole="tblUserRegister1" />
+    <NavigationProperty Name="tblUserRegister2" Relationship="Self.FK_tblUserRegister_tblUserRegister" FromRole="tblUserRegister1" ToRole="tblUserRegister" />
+  </EntityType>
+  <Association Name="FK_tblLogin_tblLogin">
+    <End Role="tblUserRegister" Type="Self.tblUserRegister" Multiplicity="1" />
+    <End Role="tblLogin" Type="Self.tblLogin" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tblUserRegister">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="tblLogin">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblUserRegister_tblUserRegister">
+    <End Role="tblUserRegister" Type="Self.tblUserRegister" Multiplicity="1" />
+    <End Role="tblUserRegister1" Type="Self.tblUserRegister" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tblUserRegister">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="tblUserRegister1">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SmartMonitoringEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblLogins" EntityType="Self.tblLogin" />
+    <EntitySet Name="tblUserRegisters" EntityType="Self.tblUserRegister" />
+    <AssociationSet Name="FK_tblLogin_tblLogin" Association="Self.FK_tblLogin_tblLogin">
+      <End Role="tblUserRegister" EntitySet="tblUserRegisters" />
+      <End Role="tblLogin" EntitySet="tblLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblUserRegister_tblUserRegister" Association="Self.FK_tblUserRegister_tblUserRegister">
+      <End Role="tblUserRegister" EntitySet="tblUserRegisters" />
+      <End Role="tblUserRegister1" EntitySet="tblUserRegisters" />
+    </AssociationSet>
+    <FunctionImport Name="AddUser">
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="MiddleName" Mode="In" Type="String" />
+      <Parameter Name="LoginID" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="Userrole" Mode="In" Type="String" />
+      <Parameter Name="PhoneNo" Mode="In" Type="String" />
+      <Parameter Name="FaxNo" Mode="In" Type="String" />
+      <Parameter Name="Companyname" Mode="In" Type="String" />
+      <Parameter Name="Designation" Mode="In" Type="String" />
+      <Parameter Name="Department" Mode="In" Type="String" />
+      <Parameter Name="EmailID" Mode="In" Type="String" />
+      <Parameter Name="UserStatus" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="CheckUserForLogin" ReturnType="Collection(SmartMonitoringModel.CheckUserForLogin_Result)">
+      <Parameter Name="LoginID" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="UserStatus" Mode="InOut" Type="Boolean" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="CheckUserForLogin_Result">
+    <Property Type="String" Name="UserID" Nullable="false" MaxLength="20" />
+    <Property Type="Boolean" Name="UserStatus" Nullable="false" />
+    <Property Type="String" Name="LoginID" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="UserRole" Nullable="false" MaxLength="20" />
+  </ComplexType>
+</Schema>

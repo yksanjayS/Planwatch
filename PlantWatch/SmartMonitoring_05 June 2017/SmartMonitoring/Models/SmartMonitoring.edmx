@@ -1,0 +1,2453 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SmartMonitoringModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblAlarmsData">
+          <Key>
+            <PropertyRef Name="AlarmID" />
+          </Key>
+          <Property Name="AlarmID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AlarmName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AlarmType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AlarmValue_High" Type="float" Nullable="false" />
+          <Property Name="AlarmValue_Low" Type="float" />
+        </EntityType>
+        <EntityType Name="tblArea">
+          <Key>
+            <PropertyRef Name="AreaID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AreaID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="AreaName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="AreaDetail" Type="varchar(max)" />
+          <Property Name="NumberOfTrains" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="date" Nullable="false" />
+          <Property Name="ParentID" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblLogin">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UserStatus" Type="bit" Nullable="false" />
+          <Property Name="LoginID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserRole" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblMachine">
+          <Key>
+            <PropertyRef Name="MachineID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MachineID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MachineName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MachineDetails" Type="varchar(max)" />
+          <Property Name="RPMDriven" Type="int" />
+          <Property Name="PulseRevolution" Type="int" />
+          <Property Name="MachineImages" Type="image" />
+          <Property Name="CreateDate" Type="date" />
+          <Property Name="ParentID" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SmartMonitoring.dbo.tblMeasurementSetup' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tblMeasurementSetup">
+          <Key>
+            <PropertyRef Name="SetupID" />
+            <PropertyRef Name="SetupName" />
+            <PropertyRef Name="SetupType" />
+            <PropertyRef Name="SpectrumSchedule" />
+            <PropertyRef Name="TrendSchedule" />
+            <PropertyRef Name="SpectrumUnit" />
+            <PropertyRef Name="TimeUnit" />
+            <PropertyRef Name="SpectrumDataUnit" />
+            <PropertyRef Name="TimeDataUnit" />
+            <PropertyRef Name="BandAlarmID" />
+            <PropertyRef Name="EnvelopeAlarmID" />
+            <PropertyRef Name="TrendAlarmID" />
+            <PropertyRef Name="FaultFrequency" />
+          </Key>
+          <Property Name="SetupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SetupName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="SetupType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SpectrumSchedule" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BandAlarmID" Type="int" Nullable="false" />
+          <Property Name="EnvelopeAlarmID" Type="int" Nullable="false" />
+          <Property Name="TrendAlarmID" Type="int" Nullable="false" />
+          <Property Name="TrendSchedule" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SpectrumUnit" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TimeUnit" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SpectrumDataUnit" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TimeDataUnit" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FaultFrequency" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblOveralldata">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RecordID" Type="int" Nullable="false" />
+          <Property Name="SensorID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Overallvalue" Type="float" Nullable="false" />
+          <Property Name="ParentID" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPlant">
+          <Key>
+            <PropertyRef Name="PlantID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlantID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PlantName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Address" Type="varchar(max)" Nullable="false" />
+          <Property Name="ContactNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FaxNo" Type="varchar" MaxLength="50" />
+          <Property Name="Website" Type="varchar" MaxLength="100" />
+          <Property Name="PlantDetails" Type="varchar(max)" />
+          <Property Name="NoOfArea" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="date" Nullable="false" />
+          <Property Name="ParentID" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SmartMonitoring.dbo.tblPlantMaster' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tblPlantMaster">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="PlantID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SensorID" Type="varchar" MaxLength="20" />
+          <Property Name="PointID" Type="varchar" MaxLength="20" />
+          <Property Name="MachineID" Type="varchar" MaxLength="20" />
+          <Property Name="TrainID" Type="varchar" MaxLength="20" />
+          <Property Name="AreaID" Type="varchar" MaxLength="20" />
+          <Property Name="PlantID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UserID" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPoint">
+          <Key>
+            <PropertyRef Name="PointID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PointID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PointName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PointDetails" Type="varchar(max)" Nullable="false" />
+          <Property Name="NoOfSensors" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="date" Nullable="false" />
+          <Property Name="ParentID" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SmartMonitoring.dbo.tblRecordData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tblRecordData">
+          <Key>
+            <PropertyRef Name="RecordTime" />
+            <PropertyRef Name="SetupID" />
+            <PropertyRef Name="ParentID" />
+            <PropertyRef Name="OverallValue" />
+            <PropertyRef Name="OverallDataUnit" />
+            <PropertyRef Name="SensorID" />
+            <PropertyRef Name="Time_X" />
+          </Key>
+          <Property Name="RecordTime" Type="datetime" Nullable="false" />
+          <Property Name="SetupID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ParentID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OverallValue" Type="float" Nullable="false" />
+          <Property Name="OverallDataUnit" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Time_X" Type="varchar(max)" Nullable="false" />
+          <Property Name="Time_Y" Type="varchar(max)" />
+          <Property Name="FFT_X" Type="varchar(max)" />
+          <Property Name="FFT_Y" Type="varchar(max)" />
+          <Property Name="SensorID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="AlarmID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblRecordedData">
+          <Key>
+            <PropertyRef Name="RecordID" />
+          </Key>
+          <Property Name="RecordID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RecordedTime" Type="datetime" Nullable="false" />
+          <Property Name="SetupID" Type="varchar" MaxLength="20" />
+          <Property Name="ParentID" Type="varchar" MaxLength="20" />
+          <Property Name="AlarmID" Type="int" />
+          <Property Name="OverallSensor1" Type="varchar" MaxLength="50" />
+          <Property Name="OverallSensor2" Type="varchar" MaxLength="50" />
+          <Property Name="OverallSensor3" Type="varchar" MaxLength="50" />
+          <Property Name="OverallSensor4" Type="varchar" MaxLength="50" />
+          <Property Name="OverallSensor5" Type="varchar" MaxLength="50" />
+          <Property Name="OverallSensor6" Type="varchar" MaxLength="50" />
+          <Property Name="OverallSensor7" Type="varchar" MaxLength="50" />
+          <Property Name="OverallSensor8" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblSensor">
+          <Key>
+            <PropertyRef Name="SensorID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SensorID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SensorName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="SensorDirection" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SensorType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SensorUnit" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SetupID" Type="varchar" MaxLength="20" />
+          <Property Name="CreateDate" Type="date" Nullable="false" />
+          <Property Name="Sensitivity" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="VMUName" Type="varchar" MaxLength="50" />
+          <Property Name="NCAID" Type="varchar" MaxLength="50" />
+          <Property Name="ParentID" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="tblTrain">
+          <Key>
+            <PropertyRef Name="TrainID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TrainID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TrainName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="NumberOfMachines" Type="int" Nullable="false" />
+          <Property Name="DriveUnitName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IntermediateUnitName" Type="varchar(max)" />
+          <Property Name="DrivenUnitName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Createdate" Type="date" Nullable="false" />
+          <Property Name="ParentID" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblUserRegister">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Lastname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="50" />
+          <Property Name="Userrole" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PhoneNo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FaxNo" Type="varchar" MaxLength="20" />
+          <Property Name="Companyname" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Designation" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Department" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmailID" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserStatus" Type="bit" Nullable="false" />
+          <Property Name="CreateDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="56" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsConfirmed" Type="bit" />
+          <Property Name="LastPasswordFailureDate" Type="datetime" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="PasswordChangedDate" Type="datetime" />
+          <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="webpages_OAuthMembership">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
+          </Key>
+          <Property Name="Provider" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ProviderUserId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_RoleId">
+          <End Role="webpages_Roles" Type="Self.webpages_Roles" Multiplicity="1" />
+          <End Role="webpages_UsersInRoles" Type="Self.webpages_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="webpages_Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="webpages_UsersInRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOveralldata_tblOveralldata">
+          <End Role="tblOveralldata" Type="Self.tblOveralldata" Multiplicity="1" />
+          <End Role="tblOveralldata1" Type="Self.tblOveralldata" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tblOveralldata">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblOveralldata1">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblOveralldata_tblRecordedData">
+          <End Role="tblRecordedData" Type="Self.tblRecordedData" Multiplicity="1" />
+          <End Role="tblOveralldata" Type="Self.tblOveralldata" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRecordedData">
+              <PropertyRef Name="RecordID" />
+            </Principal>
+            <Dependent Role="tblOveralldata">
+              <PropertyRef Name="RecordID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblRecordedData_tblRecordedData">
+          <End Role="tblRecordedData" Type="Self.tblRecordedData" Multiplicity="1" />
+          <End Role="tblRecordedData1" Type="Self.tblRecordedData" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tblRecordedData">
+              <PropertyRef Name="RecordID" />
+            </Principal>
+            <Dependent Role="tblRecordedData1">
+              <PropertyRef Name="RecordID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_UserId">
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+          <End Role="webpages_UsersInRoles" Type="Self.webpages_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="webpages_UsersInRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="AddArea" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Action" Type="varchar" Mode="In" />
+          <Parameter Name="UserID" Type="varchar" Mode="In" />
+          <Parameter Name="AreaID" Type="varchar" Mode="In" />
+          <Parameter Name="AreaName" Type="varchar" Mode="In" />
+          <Parameter Name="AreaDetail" Type="varchar(max)" Mode="In" />
+          <Parameter Name="NumberOfTrains" Type="int" Mode="In" />
+          <Parameter Name="UserRole" Type="varchar" Mode="In" />
+          <Parameter Name="ParentID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="AddMachine" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Action" Type="varchar" Mode="In" />
+          <Parameter Name="UserID" Type="varchar" Mode="In" />
+          <Parameter Name="MachineID" Type="varchar" Mode="In" />
+          <Parameter Name="MachineName" Type="varchar" Mode="In" />
+          <Parameter Name="MachineDetails" Type="varchar(max)" Mode="In" />
+          <Parameter Name="RPMDriven" Type="int" Mode="In" />
+          <Parameter Name="PulseRevolution" Type="int" Mode="In" />
+          <Parameter Name="MachineImages" Type="varchar" Mode="In" />
+          <Parameter Name="UserRole" Type="varchar" Mode="In" />
+          <Parameter Name="ParentID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="AddPlant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Action" Type="varchar" Mode="In" />
+          <Parameter Name="UserID" Type="varchar" Mode="In" />
+          <Parameter Name="PlantID" Type="varchar" Mode="In" />
+          <Parameter Name="PlantName" Type="varchar" Mode="In" />
+          <Parameter Name="Address" Type="varchar(max)" Mode="In" />
+          <Parameter Name="ContactNo" Type="varchar" Mode="In" />
+          <Parameter Name="FaxNo" Type="varchar" Mode="In" />
+          <Parameter Name="Website" Type="varchar" Mode="In" />
+          <Parameter Name="PlantDetail" Type="varchar(max)" Mode="In" />
+          <Parameter Name="NoOfArea" Type="int" Mode="In" />
+          <Parameter Name="UserRole" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="AddPoint" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Action" Type="varchar" Mode="In" />
+          <Parameter Name="UserID" Type="varchar" Mode="In" />
+          <Parameter Name="PointID" Type="varchar" Mode="In" />
+          <Parameter Name="PointName" Type="varchar" Mode="In" />
+          <Parameter Name="PointDetail" Type="varchar(max)" Mode="In" />
+          <Parameter Name="NoOfSensors" Type="int" Mode="In" />
+          <Parameter Name="UserRole" Type="varchar" Mode="In" />
+          <Parameter Name="ParentID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="AddSensor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Action" Type="varchar" Mode="In" />
+          <Parameter Name="UserID" Type="varchar" Mode="In" />
+          <Parameter Name="SensorID" Type="varchar" Mode="In" />
+          <Parameter Name="SensorName" Type="varchar" Mode="In" />
+          <Parameter Name="SensorDirection" Type="varchar" Mode="In" />
+          <Parameter Name="SensorType" Type="varchar" Mode="In" />
+          <Parameter Name="AcquisitionID" Type="varchar" Mode="In" />
+          <Parameter Name="UserRole" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="AddTrain" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Action" Type="varchar" Mode="In" />
+          <Parameter Name="UserID" Type="varchar" Mode="In" />
+          <Parameter Name="TrainID" Type="varchar" Mode="In" />
+          <Parameter Name="TrainName" Type="varchar" Mode="In" />
+          <Parameter Name="NumberOfMachines" Type="int" Mode="In" />
+          <Parameter Name="DriveUnitName" Type="varchar" Mode="In" />
+          <Parameter Name="IntermediateUnitName" Type="varchar(max)" Mode="In" />
+          <Parameter Name="DrivenUnitName" Type="varchar" Mode="In" />
+          <Parameter Name="UserRole" Type="varchar" Mode="In" />
+          <Parameter Name="ParentID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="AddUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FirstName" Type="varchar" Mode="In" />
+          <Parameter Name="LastName" Type="varchar" Mode="In" />
+          <Parameter Name="MiddleName" Type="varchar" Mode="In" />
+          <Parameter Name="LoginID" Type="varchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+          <Parameter Name="Userrole" Type="varchar" Mode="In" />
+          <Parameter Name="PhoneNo" Type="varchar" Mode="In" />
+          <Parameter Name="FaxNo" Type="varchar" Mode="In" />
+          <Parameter Name="Companyname" Type="varchar" Mode="In" />
+          <Parameter Name="Designation" Type="varchar" Mode="In" />
+          <Parameter Name="Department" Type="varchar" Mode="In" />
+          <Parameter Name="EmailID" Type="varchar" Mode="In" />
+          <Parameter Name="UserStatus" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="CheckUserForLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LoginID" Type="varchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+          <Parameter Name="UserStatus" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="DeleteNode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PlantID" Type="varchar" Mode="In" />
+          <Parameter Name="LevelID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="DeletePlant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PlantID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetAlarmData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AlarmID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetAlarmIDForSensor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SensorID" Type="varchar" Mode="In" />
+          <Parameter Name="Alarmid" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="GetAlarmIDForSensorNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SensorID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetAllPlantDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetAllSensorsByAreaID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AreaID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetAllSensorsByMachineID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MachineID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetAllSensorsByPointID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PointID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetAllSensorsByPointIDNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PointID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetAllSensorsByTrainID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TrainID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetArea" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AreaID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetAreaByPlantID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PlantID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetMachine" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MachineID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetMachineByTrainID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TrainID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetOverallByRecordID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="recordID" Type="int" Mode="In" />
+          <Parameter Name="ParentID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetPlant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PlantID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetPoint" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PointID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetPointByMachineID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MachineID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetRecordedDataBuSensorID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SensorID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetRecordedDataByPointID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PointID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetRecordedTimeByPointID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PointID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetSensorAverageOverallValue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SensorID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetSensorAverageOverallValueNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SensorID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetSensorAvgOverallValueForArea" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SensorID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetSensorAvgOverallValueForMachine" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SensorID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetSensorAvgOverallValueForPoint" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SensorID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetSensorAvgOverallValueForTrain" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SensorID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetSensorAvgOverallValueNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SensorID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetSensorByPointID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PointID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetTrain" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TrainID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetTrainByAreaID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AreaID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="getUserDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ResetCurrentPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="varchar" Mode="In" />
+          <Parameter Name="CurrentPassword" Type="varchar" Mode="In" />
+          <Parameter Name="NewPassword" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="UpdatePlant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="varchar" Mode="In" />
+          <Parameter Name="PlantID" Type="varchar" Mode="In" />
+          <Parameter Name="PlantName" Type="varchar" Mode="In" />
+          <Parameter Name="Address" Type="varchar(max)" Mode="In" />
+          <Parameter Name="ContactNo" Type="varchar" Mode="In" />
+          <Parameter Name="FaxNo" Type="varchar" Mode="In" />
+          <Parameter Name="Website" Type="varchar" Mode="In" />
+          <Parameter Name="PlantDetail" Type="varchar(max)" Mode="In" />
+          <Parameter Name="NOfArea" Type="int" Mode="In" />
+          <Parameter Name="UserRole" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="updateUserProfile" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="varchar" Mode="In" />
+          <Parameter Name="FirstName" Type="varchar" Mode="In" />
+          <Parameter Name="LastName" Type="varchar" Mode="In" />
+          <Parameter Name="MiddleName" Type="varchar" Mode="In" />
+          <Parameter Name="Userrole" Type="varchar" Mode="In" />
+          <Parameter Name="PhoneNo" Type="varchar" Mode="In" />
+          <Parameter Name="FaxNo" Type="varchar" Mode="In" />
+          <Parameter Name="Companyname" Type="varchar" Mode="In" />
+          <Parameter Name="Designation" Type="varchar" Mode="In" />
+          <Parameter Name="Department" Type="varchar" Mode="In" />
+          <Parameter Name="EmailID" Type="varchar" Mode="In" />
+          <Parameter Name="UserStatus" Type="bit" Mode="In" />
+        </Function>
+        <EntityContainer Name="SmartMonitoringModelStoreContainer">
+          <EntitySet Name="tblAlarmsData" EntityType="Self.tblAlarmsData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblArea" EntityType="Self.tblArea" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblLogin" EntityType="Self.tblLogin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblMachine" EntityType="Self.tblMachine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblOveralldata" EntityType="Self.tblOveralldata" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPlant" EntityType="Self.tblPlant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPoint" EntityType="Self.tblPoint" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblRecordedData" EntityType="Self.tblRecordedData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSensor" EntityType="Self.tblSensor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTrain" EntityType="Self.tblTrain" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUserRegister" EntityType="Self.tblUserRegister" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="Self.webpages_OAuthMembership" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_Roles" EntityType="Self.webpages_Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_UsersInRoles" EntityType="Self.webpages_UsersInRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblMeasurementSetup" EntityType="Self.tblMeasurementSetup" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tblMeasurementSetup].[SetupID] AS [SetupID], 
+    [tblMeasurementSetup].[SetupName] AS [SetupName], 
+    [tblMeasurementSetup].[SetupType] AS [SetupType], 
+    [tblMeasurementSetup].[SpectrumSchedule] AS [SpectrumSchedule], 
+    [tblMeasurementSetup].[BandAlarmID] AS [BandAlarmID], 
+    [tblMeasurementSetup].[EnvelopeAlarmID] AS [EnvelopeAlarmID], 
+    [tblMeasurementSetup].[TrendAlarmID] AS [TrendAlarmID], 
+    [tblMeasurementSetup].[TrendSchedule] AS [TrendSchedule], 
+    [tblMeasurementSetup].[SpectrumUnit] AS [SpectrumUnit], 
+    [tblMeasurementSetup].[TimeUnit] AS [TimeUnit], 
+    [tblMeasurementSetup].[SpectrumDataUnit] AS [SpectrumDataUnit], 
+    [tblMeasurementSetup].[TimeDataUnit] AS [TimeDataUnit], 
+    [tblMeasurementSetup].[FaultFrequency] AS [FaultFrequency]
+    FROM [dbo].[tblMeasurementSetup] AS [tblMeasurementSetup]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tblPlantMaster" EntityType="Self.tblPlantMaster" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tblPlantMaster].[ID] AS [ID], 
+    [tblPlantMaster].[SensorID] AS [SensorID], 
+    [tblPlantMaster].[PointID] AS [PointID], 
+    [tblPlantMaster].[MachineID] AS [MachineID], 
+    [tblPlantMaster].[TrainID] AS [TrainID], 
+    [tblPlantMaster].[AreaID] AS [AreaID], 
+    [tblPlantMaster].[PlantID] AS [PlantID], 
+    [tblPlantMaster].[UserID] AS [UserID]
+    FROM [dbo].[tblPlantMaster] AS [tblPlantMaster]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tblRecordData" EntityType="Self.tblRecordData" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tblRecordData].[RecordTime] AS [RecordTime], 
+    [tblRecordData].[SetupID] AS [SetupID], 
+    [tblRecordData].[ParentID] AS [ParentID], 
+    [tblRecordData].[OverallValue] AS [OverallValue], 
+    [tblRecordData].[OverallDataUnit] AS [OverallDataUnit], 
+    [tblRecordData].[Time_X] AS [Time_X], 
+    [tblRecordData].[Time_Y] AS [Time_Y], 
+    [tblRecordData].[FFT_X] AS [FFT_X], 
+    [tblRecordData].[FFT_Y] AS [FFT_Y], 
+    [tblRecordData].[SensorID] AS [SensorID], 
+    [tblRecordData].[AlarmID] AS [AlarmID]
+    FROM [dbo].[tblRecordData] AS [tblRecordData]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="fk_RoleId" Association="Self.fk_RoleId">
+            <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+            <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOveralldata_tblOveralldata" Association="Self.FK_tblOveralldata_tblOveralldata">
+            <End Role="tblOveralldata" EntitySet="tblOveralldata" />
+            <End Role="tblOveralldata1" EntitySet="tblOveralldata" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblOveralldata_tblRecordedData" Association="Self.FK_tblOveralldata_tblRecordedData">
+            <End Role="tblRecordedData" EntitySet="tblRecordedData" />
+            <End Role="tblOveralldata" EntitySet="tblOveralldata" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblRecordedData_tblRecordedData" Association="Self.FK_tblRecordedData_tblRecordedData">
+            <End Role="tblRecordedData" EntitySet="tblRecordedData" />
+            <End Role="tblRecordedData1" EntitySet="tblRecordedData" />
+          </AssociationSet>
+          <AssociationSet Name="fk_UserId" Association="Self.fk_UserId">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SmartMonitoringModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblArea">
+          <Key>
+            <PropertyRef Name="AreaID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="AreaID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AreaName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AreaDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NumberOfTrains" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="tblPlantMasters" Relationship="Self.Master_Area" FromRole="tblArea" ToRole="tblPlantMaster" />
+          <Property Name="ParentID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          </EntityType>
+        <EntityType Name="tblLogin">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserStatus" Type="Boolean" Nullable="false" />
+          <Property Name="LoginID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserRole" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblUserRegister" Relationship="Self.FK_tblLogin_tblLogin" FromRole="tblLogin" ToRole="tblUserRegister" />
+        </EntityType>
+        <EntityType Name="tblMachine">
+          <Key>
+            <PropertyRef Name="MachineID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="MachineID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MachineName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MachineDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RPMDriven" Type="Int32" />
+          <Property Name="PulseRevolution" Type="Int32" />
+          <Property Name="MachineImages" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="tblPlantMasters" Relationship="Self.Master_Machine" FromRole="tblMachine" ToRole="tblPlantMaster" />
+          <Property Name="ParentID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          </EntityType>
+        <EntityType Name="tblPlant">
+          <Key>
+            <PropertyRef Name="PlantID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="PlantID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PlantName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FaxNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Website" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PlantDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NoOfArea" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="tblPlantMasters" Relationship="Self.Master_Plant" FromRole="tblPlant" ToRole="tblPlantMaster" />
+          <Property Name="ParentID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPoint">
+          <Key>
+            <PropertyRef Name="PointID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="PointID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PointName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PointDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NoOfSensors" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="tblPlantMasters" Relationship="Self.Master_Point" FromRole="tblPoint" ToRole="tblPlantMaster" />
+          <Property Name="ParentID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblSensor">
+          <Key>
+            <PropertyRef Name="SensorID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="SensorID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SensorName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SensorDirection" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SensorType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="tblPlantMasters" Relationship="Self.Master_Sensor" FromRole="tblSensor" ToRole="tblPlantMaster" />
+          <Property Name="SetupID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Sensitivity" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VMUName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NCAID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ParentID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SensorUnit" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblTrain">
+          <Key>
+            <PropertyRef Name="TrainID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="TrainID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TrainName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NumberOfMachines" Type="Int32" Nullable="false" />
+          <Property Name="DriveUnitName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IntermediateUnitName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DrivenUnitName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Createdate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="tblPlantMasters" Relationship="Self.Master_Train" FromRole="tblTrain" ToRole="tblPlantMaster" />
+          <Property Name="ParentID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          </EntityType>
+        <EntityType Name="tblUserRegister">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Userrole" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FaxNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Companyname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmailID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserStatus" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="tblLogin" Relationship="Self.FK_tblLogin_tblLogin" FromRole="tblUserRegister" ToRole="tblLogin" />
+          <NavigationProperty Name="tblPlantMasters" Relationship="Self.Master_User" FromRole="tblUserRegister" ToRole="tblPlantMaster" />
+          </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="56" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="webpages_Roles" Relationship="Self.webpages_UsersInRoles" FromRole="UserProfile" ToRole="webpages_Roles" />
+        </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ConfirmationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IsConfirmed" Type="Boolean" />
+          <Property Name="LastPasswordFailureDate" Type="DateTime" Precision="3" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PasswordChangedDate" Type="DateTime" Precision="3" />
+          <Property Name="PasswordSalt" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PasswordVerificationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="webpages_OAuthMembership">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
+          </Key>
+          <Property Name="Provider" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderUserId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="UserProfiles" Relationship="Self.webpages_UsersInRoles" FromRole="webpages_Roles" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="tblMeasurementSetup">
+          <Key>
+            <PropertyRef Name="SetupID" />
+            <PropertyRef Name="SetupName" />
+            <PropertyRef Name="SetupType" />
+            <PropertyRef Name="SpectrumSchedule" />
+            <PropertyRef Name="BandAlarmID" />
+            <PropertyRef Name="EnvelopeAlarmID" />
+            <PropertyRef Name="TrendAlarmID" />
+            <PropertyRef Name="TrendSchedule" />
+            <PropertyRef Name="SpectrumUnit" />
+            <PropertyRef Name="TimeUnit" />
+            <PropertyRef Name="SpectrumDataUnit" />
+            <PropertyRef Name="TimeDataUnit" />
+            <PropertyRef Name="FaultFrequency" />
+          </Key>
+          <Property Name="SetupID" Type="Int32" Nullable="false" />
+          <Property Name="SetupName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SetupType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SpectrumSchedule" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BandAlarmID" Type="Int32" Nullable="false" />
+          <Property Name="EnvelopeAlarmID" Type="Int32" Nullable="false" />
+          <Property Name="TrendAlarmID" Type="Int32" Nullable="false" />
+          <Property Name="TrendSchedule" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SpectrumUnit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TimeUnit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SpectrumDataUnit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TimeDataUnit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FaultFrequency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblPlantMaster">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="PlantID" />
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SensorID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PointID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MachineID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TrainID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AreaID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PlantID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblArea" Relationship="Self.Master_Area" FromRole="tblPlantMaster" ToRole="tblArea" />
+          <NavigationProperty Name="tblMachine" Relationship="Self.Master_Machine" FromRole="tblPlantMaster" ToRole="tblMachine" />
+          <NavigationProperty Name="tblPlant" Relationship="Self.Master_Plant" FromRole="tblPlantMaster" ToRole="tblPlant" />
+          <NavigationProperty Name="tblPoint" Relationship="Self.Master_Point" FromRole="tblPlantMaster" ToRole="tblPoint" />
+          <NavigationProperty Name="tblSensor" Relationship="Self.Master_Sensor" FromRole="tblPlantMaster" ToRole="tblSensor" />
+          <NavigationProperty Name="tblTrain" Relationship="Self.Master_Train" FromRole="tblPlantMaster" ToRole="tblTrain" />
+          <NavigationProperty Name="tblUserRegister" Relationship="Self.Master_User" FromRole="tblPlantMaster" ToRole="tblUserRegister" />
+        </EntityType>
+        <Association Name="Master_Area">
+          <End Role="tblArea" Type="Self.tblArea" Multiplicity="0..1" />
+          <End Role="tblPlantMaster" Type="Self.tblPlantMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblArea">
+              <PropertyRef Name="AreaID" />
+            </Principal>
+            <Dependent Role="tblPlantMaster">
+              <PropertyRef Name="AreaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblLogin_tblLogin">
+          <End Role="tblUserRegister" Type="Self.tblUserRegister" Multiplicity="1" />
+          <End Role="tblLogin" Type="Self.tblLogin" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserRegister">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tblLogin">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Master_Machine">
+          <End Role="tblMachine" Type="Self.tblMachine" Multiplicity="0..1" />
+          <End Role="tblPlantMaster" Type="Self.tblPlantMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMachine">
+              <PropertyRef Name="MachineID" />
+            </Principal>
+            <Dependent Role="tblPlantMaster">
+              <PropertyRef Name="MachineID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Master_Plant">
+          <End Role="tblPlant" Type="Self.tblPlant" Multiplicity="1" />
+          <End Role="tblPlantMaster" Type="Self.tblPlantMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPlant">
+              <PropertyRef Name="PlantID" />
+            </Principal>
+            <Dependent Role="tblPlantMaster">
+              <PropertyRef Name="PlantID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Master_Point">
+          <End Role="tblPoint" Type="Self.tblPoint" Multiplicity="0..1" />
+          <End Role="tblPlantMaster" Type="Self.tblPlantMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblPoint">
+              <PropertyRef Name="PointID" />
+            </Principal>
+            <Dependent Role="tblPlantMaster">
+              <PropertyRef Name="PointID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Master_Sensor">
+          <End Role="tblSensor" Type="Self.tblSensor" Multiplicity="0..1" />
+          <End Role="tblPlantMaster" Type="Self.tblPlantMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSensor">
+              <PropertyRef Name="SensorID" />
+            </Principal>
+            <Dependent Role="tblPlantMaster">
+              <PropertyRef Name="SensorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Master_Train">
+          <End Role="tblTrain" Type="Self.tblTrain" Multiplicity="0..1" />
+          <End Role="tblPlantMaster" Type="Self.tblPlantMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblTrain">
+              <PropertyRef Name="TrainID" />
+            </Principal>
+            <Dependent Role="tblPlantMaster">
+              <PropertyRef Name="TrainID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Master_User">
+          <End Role="tblUserRegister" Type="Self.tblUserRegister" Multiplicity="1" />
+          <End Role="tblPlantMaster" Type="Self.tblPlantMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUserRegister">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tblPlantMaster">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="webpages_UsersInRoles">
+          <End Role="webpages_Roles" Type="Self.webpages_Roles" Multiplicity="*" />
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="SmartMonitoringEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblAreas" EntityType="Self.tblArea" />
+          <EntitySet Name="tblLogins" EntityType="Self.tblLogin" />
+          <EntitySet Name="tblMachines" EntityType="Self.tblMachine" />
+          <EntitySet Name="tblPlants" EntityType="Self.tblPlant" />
+          <EntitySet Name="tblPoints" EntityType="Self.tblPoint" />
+          <EntitySet Name="tblSensors" EntityType="Self.tblSensor" />
+          <EntitySet Name="tblTrains" EntityType="Self.tblTrain" />
+          <EntitySet Name="tblUserRegisters" EntityType="Self.tblUserRegister" />
+          <EntitySet Name="UserProfiles" EntityType="Self.UserProfile" />
+          <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="Self.webpages_OAuthMembership" />
+          <EntitySet Name="webpages_Roles" EntityType="Self.webpages_Roles" />
+          <EntitySet Name="tblMeasurementSetups" EntityType="Self.tblMeasurementSetup" />
+          <EntitySet Name="tblPlantMasters" EntityType="Self.tblPlantMaster" />
+          <AssociationSet Name="Master_Area" Association="Self.Master_Area">
+            <End Role="tblArea" EntitySet="tblAreas" />
+            <End Role="tblPlantMaster" EntitySet="tblPlantMasters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblLogin_tblLogin" Association="Self.FK_tblLogin_tblLogin">
+            <End Role="tblUserRegister" EntitySet="tblUserRegisters" />
+            <End Role="tblLogin" EntitySet="tblLogins" />
+          </AssociationSet>
+          <AssociationSet Name="Master_Machine" Association="Self.Master_Machine">
+            <End Role="tblMachine" EntitySet="tblMachines" />
+            <End Role="tblPlantMaster" EntitySet="tblPlantMasters" />
+          </AssociationSet>
+          <AssociationSet Name="Master_Plant" Association="Self.Master_Plant">
+            <End Role="tblPlant" EntitySet="tblPlants" />
+            <End Role="tblPlantMaster" EntitySet="tblPlantMasters" />
+          </AssociationSet>
+          <AssociationSet Name="Master_Point" Association="Self.Master_Point">
+            <End Role="tblPoint" EntitySet="tblPoints" />
+            <End Role="tblPlantMaster" EntitySet="tblPlantMasters" />
+          </AssociationSet>
+          <AssociationSet Name="Master_Sensor" Association="Self.Master_Sensor">
+            <End Role="tblSensor" EntitySet="tblSensors" />
+            <End Role="tblPlantMaster" EntitySet="tblPlantMasters" />
+          </AssociationSet>
+          <AssociationSet Name="Master_Train" Association="Self.Master_Train">
+            <End Role="tblTrain" EntitySet="tblTrains" />
+            <End Role="tblPlantMaster" EntitySet="tblPlantMasters" />
+          </AssociationSet>
+          <AssociationSet Name="Master_User" Association="Self.Master_User">
+            <End Role="tblUserRegister" EntitySet="tblUserRegisters" />
+            <End Role="tblPlantMaster" EntitySet="tblPlantMasters" />
+          </AssociationSet>
+          <AssociationSet Name="webpages_UsersInRoles" Association="Self.webpages_UsersInRoles">
+            <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+          </AssociationSet>
+          <FunctionImport Name="AddArea">
+            <Parameter Name="Action" Mode="In" Type="String" />
+            <Parameter Name="UserID" Mode="In" Type="String" />
+            <Parameter Name="AreaID" Mode="In" Type="String" />
+            <Parameter Name="AreaName" Mode="In" Type="String" />
+            <Parameter Name="AreaDetail" Mode="In" Type="String" />
+            <Parameter Name="NumberOfTrains" Mode="In" Type="Int32" />
+            <Parameter Name="UserRole" Mode="In" Type="String" />
+            <Parameter Name="ParentID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="AddMachine">
+            <Parameter Name="Action" Mode="In" Type="String" />
+            <Parameter Name="UserID" Mode="In" Type="String" />
+            <Parameter Name="MachineID" Mode="In" Type="String" />
+            <Parameter Name="MachineName" Mode="In" Type="String" />
+            <Parameter Name="MachineDetails" Mode="In" Type="String" />
+            <Parameter Name="RPMDriven" Mode="In" Type="Int32" />
+            <Parameter Name="PulseRevolution" Mode="In" Type="Int32" />
+            <Parameter Name="MachineImages" Mode="In" Type="String" />
+            <Parameter Name="UserRole" Mode="In" Type="String" />
+            <Parameter Name="ParentID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="AddPlant">
+            <Parameter Name="Action" Mode="In" Type="String" />
+            <Parameter Name="UserID" Mode="In" Type="String" />
+            <Parameter Name="PlantID" Mode="In" Type="String" />
+            <Parameter Name="PlantName" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="ContactNo" Mode="In" Type="String" />
+            <Parameter Name="FaxNo" Mode="In" Type="String" />
+            <Parameter Name="Website" Mode="In" Type="String" />
+            <Parameter Name="PlantDetail" Mode="In" Type="String" />
+            <Parameter Name="NoOfArea" Mode="In" Type="Int32" />
+            <Parameter Name="UserRole" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="AddPoint">
+            <Parameter Name="Action" Mode="In" Type="String" />
+            <Parameter Name="UserID" Mode="In" Type="String" />
+            <Parameter Name="PointID" Mode="In" Type="String" />
+            <Parameter Name="PointName" Mode="In" Type="String" />
+            <Parameter Name="PointDetail" Mode="In" Type="String" />
+            <Parameter Name="NoOfSensors" Mode="In" Type="Int32" />
+            <Parameter Name="UserRole" Mode="In" Type="String" />
+            <Parameter Name="ParentID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="AddSensor">
+            <Parameter Name="Action" Mode="In" Type="String" />
+            <Parameter Name="UserID" Mode="In" Type="String" />
+            <Parameter Name="SensorID" Mode="In" Type="String" />
+            <Parameter Name="SensorName" Mode="In" Type="String" />
+            <Parameter Name="SensorDirection" Mode="In" Type="String" />
+            <Parameter Name="SensorType" Mode="In" Type="String" />
+            <Parameter Name="AcquisitionID" Mode="In" Type="String" />
+            <Parameter Name="UserRole" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="AddTrain">
+            <Parameter Name="Action" Mode="In" Type="String" />
+            <Parameter Name="UserID" Mode="In" Type="String" />
+            <Parameter Name="TrainID" Mode="In" Type="String" />
+            <Parameter Name="TrainName" Mode="In" Type="String" />
+            <Parameter Name="NumberOfMachines" Mode="In" Type="Int32" />
+            <Parameter Name="DriveUnitName" Mode="In" Type="String" />
+            <Parameter Name="IntermediateUnitName" Mode="In" Type="String" />
+            <Parameter Name="DrivenUnitName" Mode="In" Type="String" />
+            <Parameter Name="UserRole" Mode="In" Type="String" />
+            <Parameter Name="ParentID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="AddUser">
+            <Parameter Name="FirstName" Mode="In" Type="String" />
+            <Parameter Name="LastName" Mode="In" Type="String" />
+            <Parameter Name="MiddleName" Mode="In" Type="String" />
+            <Parameter Name="LoginID" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="Userrole" Mode="In" Type="String" />
+            <Parameter Name="PhoneNo" Mode="In" Type="String" />
+            <Parameter Name="FaxNo" Mode="In" Type="String" />
+            <Parameter Name="Companyname" Mode="In" Type="String" />
+            <Parameter Name="Designation" Mode="In" Type="String" />
+            <Parameter Name="Department" Mode="In" Type="String" />
+            <Parameter Name="EmailID" Mode="In" Type="String" />
+            <Parameter Name="UserStatus" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="CheckUserForLogin" ReturnType="Collection(SmartMonitoringModel.CheckUserForLogin_Result)">
+            <Parameter Name="LoginID" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="UserStatus" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="DeletePlant">
+          <Parameter Name="PlantID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetPlant" ReturnType="Collection(SmartMonitoringModel.GetPlant_Result)">
+          <Parameter Name="PlantID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getUserDetail" ReturnType="Collection(SmartMonitoringModel.getUserDetail_Result)">
+          <Parameter Name="UserID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdatePlant">
+            <Parameter Name="UserID" Mode="In" Type="String" />
+            <Parameter Name="PlantID" Mode="In" Type="String" />
+            <Parameter Name="PlantName" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="ContactNo" Mode="In" Type="String" />
+            <Parameter Name="FaxNo" Mode="In" Type="String" />
+            <Parameter Name="Website" Mode="In" Type="String" />
+            <Parameter Name="PlantDetail" Mode="In" Type="String" />
+            <Parameter Name="NOfArea" Mode="In" Type="Int32" />
+            <Parameter Name="UserRole" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="updateUserProfile">
+            <Parameter Name="UserID" Mode="In" Type="String" />
+            <Parameter Name="FirstName" Mode="In" Type="String" />
+            <Parameter Name="LastName" Mode="In" Type="String" />
+            <Parameter Name="MiddleName" Mode="In" Type="String" />
+            <Parameter Name="Userrole" Mode="In" Type="String" />
+            <Parameter Name="PhoneNo" Mode="In" Type="String" />
+            <Parameter Name="FaxNo" Mode="In" Type="String" />
+            <Parameter Name="Companyname" Mode="In" Type="String" />
+            <Parameter Name="Designation" Mode="In" Type="String" />
+            <Parameter Name="Department" Mode="In" Type="String" />
+            <Parameter Name="EmailID" Mode="In" Type="String" />
+            <Parameter Name="UserStatus" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteNode">
+            <Parameter Name="PlantID" Mode="In" Type="String" />
+            <Parameter Name="LevelID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetAllPlantDetail" ReturnType="Collection(SmartMonitoringModel.GetAllPlantDetail_Result1)">
+          <Parameter Name="UserID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetArea" ReturnType="Collection(SmartMonitoringModel.GetArea_Result)">
+          <Parameter Name="AreaID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetMachine" ReturnType="Collection(SmartMonitoringModel.GetMachine_Result)">
+          <Parameter Name="MachineID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetPoint" ReturnType="Collection(SmartMonitoringModel.GetPoint_Result)">
+          <Parameter Name="PointID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetTrain" ReturnType="Collection(SmartMonitoringModel.GetTrain_Result)">
+          <Parameter Name="TrainID" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="tblRecordDatas" EntityType="SmartMonitoringModel.tblRecordData" />
+          <EntitySet Name="tblAlarmsDatas" EntityType="SmartMonitoringModel.tblAlarmsData" />
+          <FunctionImport Name="GetAreaByPlantID" ReturnType="Collection(SmartMonitoringModel.GetAreaByPlantID_Result)">
+          <Parameter Name="PlantID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetMachineByTrainID" ReturnType="Collection(SmartMonitoringModel.GetMachineByTrainID_Result)">
+          <Parameter Name="TrainID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetPointByMachineID" ReturnType="Collection(SmartMonitoringModel.GetPointByMachineID_Result)">
+          <Parameter Name="MachineID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetSensorAverageOverallValue">
+          <Parameter Name="SensorID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetSensorByPointID" ReturnType="Collection(SmartMonitoringModel.GetSensorByPointID_Result)">
+          <Parameter Name="PointID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetTrainByAreaID" ReturnType="Collection(SmartMonitoringModel.GetTrainByAreaID_Result)">
+          <Parameter Name="AreaID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetAlarmData" ReturnType="Collection(SmartMonitoringModel.GetAlarmData_Result)">
+          <Parameter Name="AlarmID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetAllSensorsByAreaID" ReturnType="Collection(SmartMonitoringModel.GetAllSensorsByAreaID_Result)">
+          <Parameter Name="AreaID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetSensorAverageOverallValues">
+            <Parameter Name="SensorID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetAlarmIDForSensor">
+            <Parameter Name="SensorID" Mode="In" Type="String" />
+            <Parameter Name="Alarmid" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetSensorAverageOverallValueNew" EntitySet="tblRecordDatas" ReturnType="Collection(SmartMonitoringModel.tblRecordData)">
+          <Parameter Name="SensorID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetAllSensorsByTrainID" ReturnType="Collection(SmartMonitoringModel.GetAllSensorsByTrainID_Result)">
+          <Parameter Name="TrainID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetAlarmIDForSensorNew" ReturnType="Collection(Int32)">
+          <Parameter Name="SensorID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetSensorAvgOverallValueNew" ReturnType="Collection(SmartMonitoringModel.GetSensorAvgOverallValueNew_Result)">
+          <Parameter Name="SensorID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetAllSensorsByMachineID" ReturnType="Collection(SmartMonitoringModel.GetAllSensorsByMachineID_Result)">
+          <Parameter Name="MachineID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetSensorAvgOverallValueForArea" ReturnType="Collection(SmartMonitoringModel.GetSensorAvgOverallValueForArea_Result)">
+          <Parameter Name="SensorID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetSensorAvgOverallValueForMachine" ReturnType="Collection(SmartMonitoringModel.GetSensorAvgOverallValueForMachine_Result)">
+          <Parameter Name="SensorID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetSensorAvgOverallValueForPoint" ReturnType="Collection(SmartMonitoringModel.GetSensorAvgOverallValueForPoint_Result)">
+          <Parameter Name="SensorID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetSensorAvgOverallValueForTrain" ReturnType="Collection(SmartMonitoringModel.GetSensorAvgOverallValueForTrain_Result)">
+          <Parameter Name="SensorID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetAllSensorsByPointID" ReturnType="Collection(SmartMonitoringModel.GetAllSensorsByPointID_Result)">
+          <Parameter Name="PointID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetRecordedDataBuSensorID" ReturnType="Collection(SmartMonitoringModel.GetRecordedDataBuSensorID_Result)">
+          <Parameter Name="SensorID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetAllSensorsByPointIDNew" ReturnType="Collection(SmartMonitoringModel.GetAllSensorsByPointIDNew_Result)">
+          <Parameter Name="PointID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ResetCurrentPassword">
+            <Parameter Name="UserID" Mode="In" Type="String" />
+            <Parameter Name="CurrentPassword" Mode="In" Type="String" />
+            <Parameter Name="NewPassword" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetRecordDataByTime" ReturnType="Collection(SmartMonitoringModel.GetRecordDataByTime_Result)">
+            <Parameter Name="PointID" Mode="In" Type="String" />
+            <Parameter Name="RecordTIme" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GetRecordTime" ReturnType="Collection(DateTime)">
+          <Parameter Name="PointID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetRecordedDataByPointID" ReturnType="Collection(SmartMonitoringModel.GetRecordedDataByPointID_Result)">
+          <Parameter Name="PointID" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="tblOveralldatas" EntityType="SmartMonitoringModel.tblOveralldata" />
+          <EntitySet Name="tblRecordedDatas" EntityType="SmartMonitoringModel.tblRecordedData" />
+          <AssociationSet Name="FK_tblOveralldata_tblRecordedData" Association="SmartMonitoringModel.FK_tblOveralldata_tblRecordedData">
+            <End Role="tblRecordedData" EntitySet="tblRecordedDatas" />
+            <End Role="tblOveralldata" EntitySet="tblOveralldatas" />
+          </AssociationSet>
+          <FunctionImport Name="GetRecordedTimeByPointID" ReturnType="Collection(SmartMonitoringModel.GetRecordedTimeByPointID_Result)">
+          <Parameter Name="PointID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetOverallByRecordID" ReturnType="Collection(SmartMonitoringModel.GetOverallByRecordID_Result)">
+            <Parameter Name="recordID" Mode="In" Type="Int32" />
+            <Parameter Name="ParentID" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="CheckUserForLogin_Result">
+          <Property Type="String" Name="UserID" Nullable="false" MaxLength="20" />
+          <Property Type="Boolean" Name="UserStatus" Nullable="false" />
+          <Property Type="String" Name="LoginID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="UserRole" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="GetPlant_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="PlantID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="PlantName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Address" Nullable="false" />
+          <Property Type="String" Name="ContactNo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="FaxNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Website" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="PlantDetails" Nullable="true" />
+          <Property Type="Int32" Name="NoOfArea" Nullable="false" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="getUserDetail_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="UserID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Lastname" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Userrole" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="PhoneNo" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="FaxNo" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Companyname" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Designation" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Department" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="EmailID" Nullable="false" MaxLength="100" />
+          <Property Type="Boolean" Name="UserStatus" Nullable="false" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="GetAllPlantDetail_Result">
+          <Property Type="String" Name="PlantID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="PlantName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="AreaID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="AreaName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="TrainID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="TrainName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="MachineID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="MachineName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="PointID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="PointName" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="GetAllPlantDetail_Result1">
+          <Property Type="String" Name="NodeID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="NodeText" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="ParentID" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="GetArea_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="AreaID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="AreaName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="AreaDetail" Nullable="true" />
+          <Property Type="Int32" Name="NumberOfTrains" Nullable="false" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" />
+          <Property Type="String" Name="ParentID" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="GetMachine_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="MachineID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="MachineName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="MachineDetails" Nullable="true" />
+          <Property Type="Int32" Name="RPMDriven" Nullable="true" />
+          <Property Type="Int32" Name="PulseRevolution" Nullable="true" />
+          <Property Type="Binary" Name="MachineImages" Nullable="true" MaxLength="Max" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="true" />
+          <Property Type="String" Name="ParentID" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="GetPoint_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="PointID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="PointName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="PointDetails" Nullable="false" />
+          <Property Type="Int32" Name="NoOfSensors" Nullable="false" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" />
+          <Property Type="String" Name="ParentID" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="GetTrain_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="TrainID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="TrainName" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="NumberOfMachines" Nullable="false" />
+          <Property Type="String" Name="DriveUnitName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="IntermediateUnitName" Nullable="true" />
+          <Property Type="String" Name="DrivenUnitName" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="Createdate" Nullable="false" />
+          <Property Type="String" Name="ParentID" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="tblRecordData">
+          <Key>
+            <PropertyRef Name="RecordTime" />
+            <PropertyRef Name="SetupID" />
+            <PropertyRef Name="ParentID" />
+            <PropertyRef Name="Time_X" />
+            <PropertyRef Name="SensorID" />
+            <PropertyRef Name="OverallValue" />
+            <PropertyRef Name="OverallDataUnit" />
+          </Key>
+          <Property Name="RecordTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SetupID" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="ParentID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Time_X" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SensorID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="OverallValue" Type="Double" Nullable="false" />
+          <Property Name="OverallDataUnit" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Time_Y" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FFT_X" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FFT_Y" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AlarmID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblAlarmsData">
+          <Key>
+            <PropertyRef Name="AlarmID" />
+          </Key>
+          <Property Name="AlarmID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AlarmName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AlarmType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AlarmValue_High" Type="Double" Nullable="false" />
+          <Property Name="AlarmValue_Low" Type="Double" />
+        </EntityType>
+        <ComplexType Name="GetAreaByPlantID_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="AreaID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="AreaName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="AreaDetail" Nullable="true" />
+          <Property Type="Int32" Name="NumberOfTrains" Nullable="false" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" />
+          <Property Type="String" Name="ParentID" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="GetMachineByTrainID_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="MachineID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="MachineName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="MachineDetails" Nullable="true" />
+          <Property Type="Int32" Name="RPMDriven" Nullable="true" />
+          <Property Type="Int32" Name="PulseRevolution" Nullable="true" />
+          <Property Type="Binary" Name="MachineImages" Nullable="true" MaxLength="Max" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="true" />
+          <Property Type="String" Name="ParentID" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="GetPointByMachineID_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="PointID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="PointName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="PointDetails" Nullable="false" />
+          <Property Type="Int32" Name="NoOfSensors" Nullable="false" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" />
+          <Property Type="String" Name="ParentID" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="GetSensorByPointID_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="SensorID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="SensorName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="SensorDirection" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="SensorType" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="SetupID" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" />
+          <Property Type="String" Name="Sensitivity" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="VMUName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NCAID" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ParentID" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="GetTrainByAreaID_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="TrainID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="TrainName" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="NumberOfMachines" Nullable="false" />
+          <Property Type="String" Name="DriveUnitName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="IntermediateUnitName" Nullable="true" />
+          <Property Type="String" Name="DrivenUnitName" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="Createdate" Nullable="false" />
+          <Property Type="String" Name="ParentID" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="GetAlarmData_Result">
+          <Property Type="Int32" Name="AlarmID" Nullable="false" />
+          <Property Type="String" Name="AlarmName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="AlarmType" Nullable="false" MaxLength="50" />
+          <Property Type="Double" Name="AlarmValue_High" Nullable="false" />
+          <Property Type="Double" Name="AlarmValue_Low" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetAllSensorsByAreaID_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="SensorID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="PointID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="MachineID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="TrainID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="AreaID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="PlantID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="UserID" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="GetAllSensorsByTrainID_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="SensorID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="PointID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="MachineID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="TrainID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="AreaID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="PlantID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="UserID" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="GetSensorAvgOverallValueNew_Result">
+          <Property Type="DateTime" Name="RecordTime" Nullable="false" Precision="23" />
+          <Property Type="String" Name="SetupID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ParentID" Nullable="false" MaxLength="20" />
+          <Property Type="Double" Name="OverallValue" Nullable="false" />
+          <Property Type="String" Name="OverallDataUnit" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Time_X" Nullable="true" />
+          <Property Type="String" Name="Time_Y" Nullable="true" />
+          <Property Type="String" Name="FFT_X" Nullable="true" />
+          <Property Type="String" Name="FFT_Y" Nullable="true" />
+          <Property Type="String" Name="SensorID" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="AlarmID" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetAllSensorsByMachineID_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="SensorID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="PointID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="MachineID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="TrainID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="AreaID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="PlantID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="UserID" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="GetSensorAvgOverallValueForArea_Result">
+          <Property Type="DateTime" Name="RecordTime" Nullable="false" Precision="23" />
+          <Property Type="String" Name="SetupID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ParentID" Nullable="false" MaxLength="20" />
+          <Property Type="Double" Name="OverallValue" Nullable="false" />
+          <Property Type="String" Name="OverallDataUnit" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Time_X" Nullable="true" />
+          <Property Type="String" Name="Time_Y" Nullable="true" />
+          <Property Type="String" Name="FFT_X" Nullable="true" />
+          <Property Type="String" Name="FFT_Y" Nullable="true" />
+          <Property Type="String" Name="SensorID" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="AlarmID" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetSensorAvgOverallValueForMachine_Result">
+          <Property Type="DateTime" Name="RecordTime" Nullable="false" Precision="23" />
+          <Property Type="String" Name="SetupID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ParentID" Nullable="false" MaxLength="20" />
+          <Property Type="Double" Name="OverallValue" Nullable="false" />
+          <Property Type="String" Name="OverallDataUnit" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Time_X" Nullable="true" />
+          <Property Type="String" Name="Time_Y" Nullable="true" />
+          <Property Type="String" Name="FFT_X" Nullable="true" />
+          <Property Type="String" Name="FFT_Y" Nullable="true" />
+          <Property Type="String" Name="SensorID" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="AlarmID" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetSensorAvgOverallValueForPoint_Result">
+          <Property Type="DateTime" Name="RecordTime" Nullable="false" Precision="23" />
+          <Property Type="String" Name="SetupID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ParentID" Nullable="false" MaxLength="20" />
+          <Property Type="Double" Name="OverallValue" Nullable="false" />
+          <Property Type="String" Name="OverallDataUnit" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Time_X" Nullable="true" />
+          <Property Type="String" Name="Time_Y" Nullable="true" />
+          <Property Type="String" Name="FFT_X" Nullable="true" />
+          <Property Type="String" Name="FFT_Y" Nullable="true" />
+          <Property Type="String" Name="SensorID" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="AlarmID" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetSensorAvgOverallValueForTrain_Result">
+          <Property Type="DateTime" Name="RecordTime" Nullable="false" Precision="23" />
+          <Property Type="String" Name="SetupID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ParentID" Nullable="false" MaxLength="20" />
+          <Property Type="Double" Name="OverallValue" Nullable="false" />
+          <Property Type="String" Name="OverallDataUnit" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Time_X" Nullable="true" />
+          <Property Type="String" Name="Time_Y" Nullable="true" />
+          <Property Type="String" Name="FFT_X" Nullable="true" />
+          <Property Type="String" Name="FFT_Y" Nullable="true" />
+          <Property Type="String" Name="SensorID" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="AlarmID" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetAllSensorsByPointID_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="SensorID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="PointID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="MachineID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="TrainID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="AreaID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="PlantID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="UserID" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="GetRecordedDataBuSensorID_Result">
+          <Property Type="DateTime" Name="RecordTime" Nullable="false" Precision="23" />
+          <Property Type="String" Name="SetupID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ParentID" Nullable="false" MaxLength="20" />
+          <Property Type="Double" Name="OverallValue" Nullable="false" />
+          <Property Type="String" Name="OverallDataUnit" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Time_X" Nullable="true" />
+          <Property Type="String" Name="Time_Y" Nullable="true" />
+          <Property Type="String" Name="FFT_X" Nullable="true" />
+          <Property Type="String" Name="FFT_Y" Nullable="true" />
+          <Property Type="String" Name="SensorID" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="AlarmID" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetAllSensorsByPointIDNew_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="SensorID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="SensorName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="SensorDirection" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="SensorType" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="SetupID" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" />
+          <Property Type="String" Name="Sensitivity" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="VMUName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NCAID" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ParentID" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="GetRecordDataByTime_Result">
+          <Property Type="DateTime" Name="RecordTime" Nullable="false" Precision="23" />
+          <Property Type="String" Name="SetupID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="ParentID" Nullable="false" MaxLength="20" />
+          <Property Type="Double" Name="OverallValue" Nullable="false" />
+          <Property Type="String" Name="OverallDataUnit" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Time_X" Nullable="true" />
+          <Property Type="String" Name="Time_Y" Nullable="true" />
+          <Property Type="String" Name="FFT_X" Nullable="true" />
+          <Property Type="String" Name="FFT_Y" Nullable="true" />
+          <Property Type="String" Name="SensorID" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="AlarmID" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetRecordedDataByPointID_Result">
+          <Property Type="Int32" Name="RecordID" Nullable="false" />
+          <Property Type="DateTime" Name="RecordedTime" Nullable="false" Precision="23" />
+          <Property Type="String" Name="SetupID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="ParentID" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="AlarmID" Nullable="true" />
+          <Property Type="String" Name="OverallUnit" Nullable="true" MaxLength="20" />
+          <Property Type="Double" Name="OverallSensor1" Nullable="true" />
+          <Property Type="Double" Name="OverallSensor2" Nullable="true" />
+          <Property Type="Double" Name="OverallSensor3" Nullable="true" />
+          <Property Type="Double" Name="OverallSensor4" Nullable="true" />
+          <Property Type="Double" Name="OverallSensor5" Nullable="true" />
+          <Property Type="Double" Name="OverallSensor6" Nullable="true" />
+          <Property Type="Double" Name="OverallSensor7" Nullable="true" />
+          <Property Type="Double" Name="OverallSensor8" Nullable="true" />
+          <Property Type="String" Name="Time_X1" Nullable="true" />
+          <Property Type="String" Name="Time_X2" Nullable="true" />
+          <Property Type="String" Name="Time_X3" Nullable="true" />
+          <Property Type="String" Name="Time_X4" Nullable="true" />
+          <Property Type="String" Name="Time_X5" Nullable="true" />
+          <Property Type="String" Name="Time_X6" Nullable="true" />
+          <Property Type="String" Name="Time_X7" Nullable="true" />
+          <Property Type="String" Name="Time_X8" Nullable="true" />
+          <Property Type="String" Name="Time_Y1" Nullable="true" />
+          <Property Type="String" Name="Time_Y2" Nullable="true" />
+          <Property Type="String" Name="Time_Y3" Nullable="true" />
+          <Property Type="String" Name="Time_Y4" Nullable="true" />
+          <Property Type="String" Name="Time_Y5" Nullable="true" />
+          <Property Type="String" Name="Time_Y6" Nullable="true" />
+          <Property Type="String" Name="Time_Y7" Nullable="true" />
+          <Property Type="String" Name="Time_Y8" Nullable="true" />
+          <Property Type="String" Name="FFT_X1" Nullable="true" />
+          <Property Type="String" Name="FFT_X2" Nullable="true" />
+          <Property Type="String" Name="FFT_X3" Nullable="true" />
+          <Property Type="String" Name="FFT_X4" Nullable="true" />
+          <Property Type="String" Name="FFT_X5" Nullable="true" />
+          <Property Type="String" Name="FFT_X6" Nullable="true" />
+          <Property Type="String" Name="FFT_X7" Nullable="true" />
+          <Property Type="String" Name="FFT_X8" Nullable="true" />
+          <Property Type="String" Name="FFT_Y1" Nullable="true" />
+          <Property Type="String" Name="FFT_Y2" Nullable="true" />
+          <Property Type="String" Name="FFT_Y3" Nullable="true" />
+          <Property Type="String" Name="FFT_Y4" Nullable="true" />
+          <Property Type="String" Name="FFT_Y5" Nullable="true" />
+          <Property Type="String" Name="FFT_Y6" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="FFT_Y7" Nullable="true" />
+          <Property Type="String" Name="FFT_Y8" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="tblOveralldata">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecordID" Type="Int32" Nullable="false" />
+          <Property Name="SensorID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Overallvalue" Type="Double" Nullable="false" />
+          <Property Name="ParentID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblRecordedData" Relationship="SmartMonitoringModel.FK_tblOveralldata_tblRecordedData" FromRole="tblOveralldata" ToRole="tblRecordedData" />
+        </EntityType>
+        <EntityType Name="tblRecordedData">
+          <Key>
+            <PropertyRef Name="RecordID" />
+          </Key>
+          <Property Name="RecordID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecordedTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SetupID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ParentID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AlarmID" Type="Int32" />
+          <Property Name="OverallSensor1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OverallSensor2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OverallSensor3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OverallSensor4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OverallSensor5" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OverallSensor6" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OverallSensor7" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OverallSensor8" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblOveralldatas" Relationship="SmartMonitoringModel.FK_tblOveralldata_tblRecordedData" FromRole="tblRecordedData" ToRole="tblOveralldata" />
+          </EntityType>
+        <Association Name="FK_tblOveralldata_tblRecordedData">
+          <End Type="SmartMonitoringModel.tblRecordedData" Role="tblRecordedData" Multiplicity="1" />
+          <End Type="SmartMonitoringModel.tblOveralldata" Role="tblOveralldata" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRecordedData">
+              <PropertyRef Name="RecordID" />
+            </Principal>
+            <Dependent Role="tblOveralldata">
+              <PropertyRef Name="RecordID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="GetRecordedTimeByPointID_Result">
+          <Property Type="Int32" Name="RecordID" Nullable="false" />
+          <Property Type="DateTime" Name="RecordedTime" Nullable="false" Precision="23" />
+          <Property Type="String" Name="SetupID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="ParentID" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="AlarmID" Nullable="true" />
+          <Property Type="String" Name="OverallSensor1" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="OverallSensor2" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="OverallSensor3" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="OverallSensor4" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="OverallSensor5" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="OverallSensor6" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="OverallSensor7" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="OverallSensor8" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="GetOverallByRecordID_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="RecordID" Nullable="false" />
+          <Property Type="String" Name="SensorID" Nullable="false" MaxLength="50" />
+          <Property Type="Double" Name="Overallvalue" Nullable="false" />
+          <Property Type="String" Name="ParentID" Nullable="false" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SmartMonitoringModelStoreContainer" CdmEntityContainer="SmartMonitoringEntities">
+          <EntitySetMapping Name="tblAreas">
+            <EntityTypeMapping TypeName="SmartMonitoringModel.tblArea">
+              <MappingFragment StoreEntitySet="tblArea">
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+                <ScalarProperty Name="AreaDetail" ColumnName="AreaDetail" />
+                <ScalarProperty Name="NumberOfTrains" ColumnName="NumberOfTrains" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblLogins">
+            <EntityTypeMapping TypeName="SmartMonitoringModel.tblLogin">
+              <MappingFragment StoreEntitySet="tblLogin">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMachines">
+            <EntityTypeMapping TypeName="SmartMonitoringModel.tblMachine">
+              <MappingFragment StoreEntitySet="tblMachine">
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+                <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+                <ScalarProperty Name="MachineDetails" ColumnName="MachineDetails" />
+                <ScalarProperty Name="RPMDriven" ColumnName="RPMDriven" />
+                <ScalarProperty Name="PulseRevolution" ColumnName="PulseRevolution" />
+                <ScalarProperty Name="MachineImages" ColumnName="MachineImages" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPlants">
+            <EntityTypeMapping TypeName="SmartMonitoringModel.tblPlant">
+              <MappingFragment StoreEntitySet="tblPlant">
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PlantID" ColumnName="PlantID" />
+                <ScalarProperty Name="PlantName" ColumnName="PlantName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="PlantDetails" ColumnName="PlantDetails" />
+                <ScalarProperty Name="NoOfArea" ColumnName="NoOfArea" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPoints">
+            <EntityTypeMapping TypeName="SmartMonitoringModel.tblPoint">
+              <MappingFragment StoreEntitySet="tblPoint">
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PointID" ColumnName="PointID" />
+                <ScalarProperty Name="PointName" ColumnName="PointName" />
+                <ScalarProperty Name="PointDetails" ColumnName="PointDetails" />
+                <ScalarProperty Name="NoOfSensors" ColumnName="NoOfSensors" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSensors">
+            <EntityTypeMapping TypeName="SmartMonitoringModel.tblSensor">
+              <MappingFragment StoreEntitySet="tblSensor">
+                <ScalarProperty Name="SensorUnit" ColumnName="SensorUnit" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="NCAID" ColumnName="NCAID" />
+                <ScalarProperty Name="VMUName" ColumnName="VMUName" />
+                <ScalarProperty Name="Sensitivity" ColumnName="Sensitivity" />
+                <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+                <ScalarProperty Name="SensorName" ColumnName="SensorName" />
+                <ScalarProperty Name="SensorDirection" ColumnName="SensorDirection" />
+                <ScalarProperty Name="SensorType" ColumnName="SensorType" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTrains">
+            <EntityTypeMapping TypeName="SmartMonitoringModel.tblTrain">
+              <MappingFragment StoreEntitySet="tblTrain">
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TrainID" ColumnName="TrainID" />
+                <ScalarProperty Name="TrainName" ColumnName="TrainName" />
+                <ScalarProperty Name="NumberOfMachines" ColumnName="NumberOfMachines" />
+                <ScalarProperty Name="DriveUnitName" ColumnName="DriveUnitName" />
+                <ScalarProperty Name="IntermediateUnitName" ColumnName="IntermediateUnitName" />
+                <ScalarProperty Name="DrivenUnitName" ColumnName="DrivenUnitName" />
+                <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUserRegisters">
+            <EntityTypeMapping TypeName="SmartMonitoringModel.tblUserRegister">
+              <MappingFragment StoreEntitySet="tblUserRegister">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="Userrole" ColumnName="Userrole" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+                <ScalarProperty Name="Companyname" ColumnName="Companyname" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfiles">
+            <EntityTypeMapping TypeName="SmartMonitoringModel.UserProfile">
+              <MappingFragment StoreEntitySet="UserProfile">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_Membership">
+            <EntityTypeMapping TypeName="SmartMonitoringModel.webpages_Membership">
+              <MappingFragment StoreEntitySet="webpages_Membership">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ConfirmationToken" ColumnName="ConfirmationToken" />
+                <ScalarProperty Name="IsConfirmed" ColumnName="IsConfirmed" />
+                <ScalarProperty Name="LastPasswordFailureDate" ColumnName="LastPasswordFailureDate" />
+                <ScalarProperty Name="PasswordFailuresSinceLastSuccess" ColumnName="PasswordFailuresSinceLastSuccess" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PasswordChangedDate" ColumnName="PasswordChangedDate" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="PasswordVerificationToken" ColumnName="PasswordVerificationToken" />
+                <ScalarProperty Name="PasswordVerificationTokenExpirationDate" ColumnName="PasswordVerificationTokenExpirationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_OAuthMembership">
+            <EntityTypeMapping TypeName="SmartMonitoringModel.webpages_OAuthMembership">
+              <MappingFragment StoreEntitySet="webpages_OAuthMembership">
+                <ScalarProperty Name="Provider" ColumnName="Provider" />
+                <ScalarProperty Name="ProviderUserId" ColumnName="ProviderUserId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_Roles">
+            <EntityTypeMapping TypeName="SmartMonitoringModel.webpages_Roles">
+              <MappingFragment StoreEntitySet="webpages_Roles">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMeasurementSetups">
+            <EntityTypeMapping TypeName="SmartMonitoringModel.tblMeasurementSetup">
+              <MappingFragment StoreEntitySet="tblMeasurementSetup">
+                <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+                <ScalarProperty Name="SetupName" ColumnName="SetupName" />
+                <ScalarProperty Name="SetupType" ColumnName="SetupType" />
+                <ScalarProperty Name="SpectrumSchedule" ColumnName="SpectrumSchedule" />
+                <ScalarProperty Name="BandAlarmID" ColumnName="BandAlarmID" />
+                <ScalarProperty Name="EnvelopeAlarmID" ColumnName="EnvelopeAlarmID" />
+                <ScalarProperty Name="TrendAlarmID" ColumnName="TrendAlarmID" />
+                <ScalarProperty Name="TrendSchedule" ColumnName="TrendSchedule" />
+                <ScalarProperty Name="SpectrumUnit" ColumnName="SpectrumUnit" />
+                <ScalarProperty Name="TimeUnit" ColumnName="TimeUnit" />
+                <ScalarProperty Name="SpectrumDataUnit" ColumnName="SpectrumDataUnit" />
+                <ScalarProperty Name="TimeDataUnit" ColumnName="TimeDataUnit" />
+                <ScalarProperty Name="FaultFrequency" ColumnName="FaultFrequency" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPlantMasters">
+            <EntityTypeMapping TypeName="SmartMonitoringModel.tblPlantMaster">
+              <MappingFragment StoreEntitySet="tblPlantMaster">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+                <ScalarProperty Name="PointID" ColumnName="PointID" />
+                <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+                <ScalarProperty Name="TrainID" ColumnName="TrainID" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="PlantID" ColumnName="PlantID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="webpages_UsersInRoles" TypeName="SmartMonitoringModel.webpages_UsersInRoles" StoreEntitySet="webpages_UsersInRoles">
+            <EndProperty Name="webpages_Roles">
+              <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="UserProfile">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="AddArea" FunctionName="SmartMonitoringModel.Store.AddArea" />
+          <FunctionImportMapping FunctionImportName="AddMachine" FunctionName="SmartMonitoringModel.Store.AddMachine" />
+          <FunctionImportMapping FunctionImportName="AddPlant" FunctionName="SmartMonitoringModel.Store.AddPlant" />
+          <FunctionImportMapping FunctionImportName="AddPoint" FunctionName="SmartMonitoringModel.Store.AddPoint" />
+          <FunctionImportMapping FunctionImportName="AddSensor" FunctionName="SmartMonitoringModel.Store.AddSensor" />
+          <FunctionImportMapping FunctionImportName="AddTrain" FunctionName="SmartMonitoringModel.Store.AddTrain" />
+          <FunctionImportMapping FunctionImportName="AddUser" FunctionName="SmartMonitoringModel.Store.AddUser" />
+          <FunctionImportMapping FunctionImportName="CheckUserForLogin" FunctionName="SmartMonitoringModel.Store.CheckUserForLogin">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartMonitoringModel.CheckUserForLogin_Result">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+                <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DeletePlant" FunctionName="SmartMonitoringModel.Store.DeletePlant" />
+          <FunctionImportMapping FunctionImportName="GetPlant" FunctionName="SmartMonitoringModel.Store.GetPlant">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartMonitoringModel.GetPlant_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PlantID" ColumnName="PlantID" />
+                <ScalarProperty Name="PlantName" ColumnName="PlantName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="PlantDetails" ColumnName="PlantDetails" />
+                <ScalarProperty Name="NoOfArea" ColumnName="NoOfArea" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getUserDetail" FunctionName="SmartMonitoringModel.Store.getUserDetail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartMonitoringModel.getUserDetail_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="Userrole" ColumnName="Userrole" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+                <ScalarProperty Name="Companyname" ColumnName="Companyname" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UpdatePlant" FunctionName="SmartMonitoringModel.Store.UpdatePlant" />
+          <FunctionImportMapping FunctionImportName="updateUserProfile" FunctionName="SmartMonitoringModel.Store.updateUserProfile" />
+          <FunctionImportMapping FunctionImportName="DeleteNode" FunctionName="SmartMonitoringModel.Store.DeleteNode" />
+          <FunctionImportMapping FunctionImportName="GetAllPlantDetail" FunctionName="SmartMonitoringModel.Store.GetAllPlantDetail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartMonitoringModel.GetAllPlantDetail_Result1">
+                <ScalarProperty Name="NodeID" ColumnName="NodeID" />
+                <ScalarProperty Name="NodeText" ColumnName="NodeText" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetArea" FunctionName="SmartMonitoringModel.Store.GetArea">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartMonitoringModel.GetArea_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+                <ScalarProperty Name="AreaDetail" ColumnName="AreaDetail" />
+                <ScalarProperty Name="NumberOfTrains" ColumnName="NumberOfTrains" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetMachine" FunctionName="SmartMonitoringModel.Store.GetMachine">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartMonitoringModel.GetMachine_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+                <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+                <ScalarProperty Name="MachineDetails" ColumnName="MachineDetails" />
+                <ScalarProperty Name="RPMDriven" ColumnName="RPMDriven" />
+                <ScalarProperty Name="PulseRevolution" ColumnName="PulseRevolution" />
+                <ScalarProperty Name="MachineImages" ColumnName="MachineImages" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetPoint" FunctionName="SmartMonitoringModel.Store.GetPoint">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartMonitoringModel.GetPoint_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PointID" ColumnName="PointID" />
+                <ScalarProperty Name="PointName" ColumnName="PointName" />
+                <ScalarProperty Name="PointDetails" ColumnName="PointDetails" />
+                <ScalarProperty Name="NoOfSensors" ColumnName="NoOfSensors" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetTrain" FunctionName="SmartMonitoringModel.Store.GetTrain">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartMonitoringModel.GetTrain_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TrainID" ColumnName="TrainID" />
+                <ScalarProperty Name="TrainName" ColumnName="TrainName" />
+                <ScalarProperty Name="NumberOfMachines" ColumnName="NumberOfMachines" />
+                <ScalarProperty Name="DriveUnitName" ColumnName="DriveUnitName" />
+                <ScalarProperty Name="IntermediateUnitName" ColumnName="IntermediateUnitName" />
+                <ScalarProperty Name="DrivenUnitName" ColumnName="DrivenUnitName" />
+                <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tblRecordDatas">
+            <EntityTypeMapping TypeName="SmartMonitoringModel.tblRecordData">
+              <MappingFragment StoreEntitySet="tblRecordData">
+                <ScalarProperty Name="AlarmID" ColumnName="AlarmID" />
+                <ScalarProperty Name="FFT_Y" ColumnName="FFT_Y" />
+                <ScalarProperty Name="FFT_X" ColumnName="FFT_X" />
+                <ScalarProperty Name="Time_Y" ColumnName="Time_Y" />
+                <ScalarProperty Name="OverallDataUnit" ColumnName="OverallDataUnit" />
+                <ScalarProperty Name="OverallValue" ColumnName="OverallValue" />
+                <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+                <ScalarProperty Name="Time_X" ColumnName="Time_X" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+                <ScalarProperty Name="RecordTime" ColumnName="RecordTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAlarmsDatas">
+            <EntityTypeMapping TypeName="SmartMonitoringModel.tblAlarmsData">
+              <MappingFragment StoreEntitySet="tblAlarmsData">
+                <ScalarProperty Name="AlarmValue_Low" ColumnName="AlarmValue_Low" />
+                <ScalarProperty Name="AlarmValue_High" ColumnName="AlarmValue_High" />
+                <ScalarProperty Name="AlarmType" ColumnName="AlarmType" />
+                <ScalarProperty Name="AlarmName" ColumnName="AlarmName" />
+                <ScalarProperty Name="AlarmID" ColumnName="AlarmID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetAreaByPlantID" FunctionName="SmartMonitoringModel.Store.GetAreaByPlantID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartMonitoringModel.GetAreaByPlantID_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+                <ScalarProperty Name="AreaDetail" ColumnName="AreaDetail" />
+                <ScalarProperty Name="NumberOfTrains" ColumnName="NumberOfTrains" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetMachineByTrainID" FunctionName="SmartMonitoringModel.Store.GetMachineByTrainID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartMonitoringModel.GetMachineByTrainID_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+                <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+                <ScalarProperty Name="MachineDetails" ColumnName="MachineDetails" />
+                <ScalarProperty Name="RPMDriven" ColumnName="RPMDriven" />
+                <ScalarProperty Name="PulseRevolution" ColumnName="PulseRevolution" />
+                <ScalarProperty Name="MachineImages" ColumnName="MachineImages" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetPointByMachineID" FunctionName="SmartMonitoringModel.Store.GetPointByMachineID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartMonitoringModel.GetPointByMachineID_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PointID" ColumnName="PointID" />
+                <ScalarProperty Name="PointName" ColumnName="PointName" />
+                <ScalarProperty Name="PointDetails" ColumnName="PointDetails" />
+                <ScalarProperty Name="NoOfSensors" ColumnName="NoOfSensors" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetSensorAverageOverallValue" FunctionName="SmartMonitoringModel.Store.GetSensorAverageOverallValue" />
+          <FunctionImportMapping FunctionImportName="GetSensorByPointID" FunctionName="SmartMonitoringModel.Store.GetSensorByPointID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartMonitoringModel.GetSensorByPointID_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+                <ScalarProperty Name="SensorName" ColumnName="SensorName" />
+                <ScalarProperty Name="SensorDirection" ColumnName="SensorDirection" />
+                <ScalarProperty Name="SensorType" ColumnName="SensorType" />
+                <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Sensitivity" ColumnName="Sensitivity" />
+                <ScalarProperty Name="VMUName" ColumnName="VMUName" />
+                <ScalarProperty Name="NCAID" ColumnName="NCAID" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetTrainByAreaID" FunctionName="SmartMonitoringModel.Store.GetTrainByAreaID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartMonitoringModel.GetTrainByAreaID_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TrainID" ColumnName="TrainID" />
+                <ScalarProperty Name="TrainName" ColumnName="TrainName" />
+                <ScalarProperty Name="NumberOfMachines" ColumnName="NumberOfMachines" />
+                <ScalarProperty Name="DriveUnitName" ColumnName="DriveUnitName" />
+                <ScalarProperty Name="IntermediateUnitName" ColumnName="IntermediateUnitName" />
+                <ScalarProperty Name="DrivenUnitName" ColumnName="DrivenUnitName" />
+                <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAlarmData" FunctionName="SmartMonitoringModel.Store.GetAlarmData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartMonitoringModel.GetAlarmData_Result">
+                <ScalarProperty Name="AlarmID" ColumnName="AlarmID" />
+                <ScalarProperty Name="AlarmName" ColumnName="AlarmName" />
+                <ScalarProperty Name="AlarmType" ColumnName="AlarmType" />
+                <ScalarProperty Name="AlarmValue_High" ColumnName="AlarmValue_High" />
+                <ScalarProperty Name="AlarmValue_Low" ColumnName="AlarmValue_Low" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAllSensorsByAreaID" FunctionName="SmartMonitoringModel.Store.GetAllSensorsByAreaID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartMonitoringModel.GetAllSensorsByAreaID_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+                <ScalarProperty Name="PointID" ColumnName="PointID" />
+                <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+                <ScalarProperty Name="TrainID" ColumnName="TrainID" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="PlantID" ColumnName="PlantID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAlarmIDForSensor" FunctionName="SmartMonitoringModel.Store.GetAlarmIDForSensor" />
+          <FunctionImportMapping FunctionImportName="GetSensorAverageOverallValueNew" FunctionName="SmartMonitoringModel.Store.GetSensorAverageOverallValueNew" />
+          <FunctionImportMapping FunctionImportName="GetAllSensorsByTrainID" FunctionName="SmartMonitoringModel.Store.GetAllSensorsByTrainID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartMonitoringModel.GetAllSensorsByTrainID_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+                <ScalarProperty Name="PointID" ColumnName="PointID" />
+                <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+                <ScalarProperty Name="TrainID" ColumnName="TrainID" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="PlantID" ColumnName="PlantID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAlarmIDForSensorNew" FunctionName="SmartMonitoringModel.Store.GetAlarmIDForSensorNew" />
+          <FunctionImportMapping FunctionImportName="GetSensorAvgOverallValueNew" FunctionName="SmartMonitoringModel.Store.GetSensorAvgOverallValueNew">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartMonitoringModel.GetSensorAvgOverallValueNew_Result">
+                <ScalarProperty Name="RecordTime" ColumnName="RecordTime" />
+                <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="OverallValue" ColumnName="OverallValue" />
+                <ScalarProperty Name="OverallDataUnit" ColumnName="OverallDataUnit" />
+                <ScalarProperty Name="Time_X" ColumnName="Time_X" />
+                <ScalarProperty Name="Time_Y" ColumnName="Time_Y" />
+                <ScalarProperty Name="FFT_X" ColumnName="FFT_X" />
+                <ScalarProperty Name="FFT_Y" ColumnName="FFT_Y" />
+                <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+                <ScalarProperty Name="AlarmID" ColumnName="AlarmID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAllSensorsByMachineID" FunctionName="SmartMonitoringModel.Store.GetAllSensorsByMachineID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartMonitoringModel.GetAllSensorsByMachineID_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+                <ScalarProperty Name="PointID" ColumnName="PointID" />
+                <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+                <ScalarProperty Name="TrainID" ColumnName="TrainID" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="PlantID" ColumnName="PlantID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetSensorAvgOverallValueForArea" FunctionName="SmartMonitoringModel.Store.GetSensorAvgOverallValueForArea">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartMonitoringModel.GetSensorAvgOverallValueForArea_Result">
+                <ScalarProperty Name="RecordTime" ColumnName="RecordTime" />
+                <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="OverallValue" ColumnName="OverallValue" />
+                <ScalarProperty Name="OverallDataUnit" ColumnName="OverallDataUnit" />
+                <ScalarProperty Name="Time_X" ColumnName="Time_X" />
+                <ScalarProperty Name="Time_Y" ColumnName="Time_Y" />
+                <ScalarProperty Name="FFT_X" ColumnName="FFT_X" />
+                <ScalarProperty Name="FFT_Y" ColumnName="FFT_Y" />
+                <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+                <ScalarProperty Name="AlarmID" ColumnName="AlarmID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetSensorAvgOverallValueForMachine" FunctionName="SmartMonitoringModel.Store.GetSensorAvgOverallValueForMachine">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartMonitoringModel.GetSensorAvgOverallValueForMachine_Result">
+                <ScalarProperty Name="RecordTime" ColumnName="RecordTime" />
+                <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="OverallValue" ColumnName="OverallValue" />
+                <ScalarProperty Name="OverallDataUnit" ColumnName="OverallDataUnit" />
+                <ScalarProperty Name="Time_X" ColumnName="Time_X" />
+                <ScalarProperty Name="Time_Y" ColumnName="Time_Y" />
+                <ScalarProperty Name="FFT_X" ColumnName="FFT_X" />
+                <ScalarProperty Name="FFT_Y" ColumnName="FFT_Y" />
+                <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+                <ScalarProperty Name="AlarmID" ColumnName="AlarmID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetSensorAvgOverallValueForPoint" FunctionName="SmartMonitoringModel.Store.GetSensorAvgOverallValueForPoint">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartMonitoringModel.GetSensorAvgOverallValueForPoint_Result">
+                <ScalarProperty Name="RecordTime" ColumnName="RecordTime" />
+                <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="OverallValue" ColumnName="OverallValue" />
+                <ScalarProperty Name="OverallDataUnit" ColumnName="OverallDataUnit" />
+                <ScalarProperty Name="Time_X" ColumnName="Time_X" />
+                <ScalarProperty Name="Time_Y" ColumnName="Time_Y" />
+                <ScalarProperty Name="FFT_X" ColumnName="FFT_X" />
+                <ScalarProperty Name="FFT_Y" ColumnName="FFT_Y" />
+                <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+                <ScalarProperty Name="AlarmID" ColumnName="AlarmID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetSensorAvgOverallValueForTrain" FunctionName="SmartMonitoringModel.Store.GetSensorAvgOverallValueForTrain">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartMonitoringModel.GetSensorAvgOverallValueForTrain_Result">
+                <ScalarProperty Name="RecordTime" ColumnName="RecordTime" />
+                <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="OverallValue" ColumnName="OverallValue" />
+                <ScalarProperty Name="OverallDataUnit" ColumnName="OverallDataUnit" />
+                <ScalarProperty Name="Time_X" ColumnName="Time_X" />
+                <ScalarProperty Name="Time_Y" ColumnName="Time_Y" />
+                <ScalarProperty Name="FFT_X" ColumnName="FFT_X" />
+                <ScalarProperty Name="FFT_Y" ColumnName="FFT_Y" />
+                <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+                <ScalarProperty Name="AlarmID" ColumnName="AlarmID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAllSensorsByPointID" FunctionName="SmartMonitoringModel.Store.GetAllSensorsByPointID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartMonitoringModel.GetAllSensorsByPointID_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+                <ScalarProperty Name="PointID" ColumnName="PointID" />
+                <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+                <ScalarProperty Name="TrainID" ColumnName="TrainID" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="PlantID" ColumnName="PlantID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetRecordedDataBuSensorID" FunctionName="SmartMonitoringModel.Store.GetRecordedDataBuSensorID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartMonitoringModel.GetRecordedDataBuSensorID_Result">
+                <ScalarProperty Name="RecordTime" ColumnName="RecordTime" />
+                <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="OverallValue" ColumnName="OverallValue" />
+                <ScalarProperty Name="OverallDataUnit" ColumnName="OverallDataUnit" />
+                <ScalarProperty Name="Time_X" ColumnName="Time_X" />
+                <ScalarProperty Name="Time_Y" ColumnName="Time_Y" />
+                <ScalarProperty Name="FFT_X" ColumnName="FFT_X" />
+                <ScalarProperty Name="FFT_Y" ColumnName="FFT_Y" />
+                <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+                <ScalarProperty Name="AlarmID" ColumnName="AlarmID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetAllSensorsByPointIDNew" FunctionName="SmartMonitoringModel.Store.GetAllSensorsByPointIDNew">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartMonitoringModel.GetAllSensorsByPointIDNew_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+                <ScalarProperty Name="SensorName" ColumnName="SensorName" />
+                <ScalarProperty Name="SensorDirection" ColumnName="SensorDirection" />
+                <ScalarProperty Name="SensorType" ColumnName="SensorType" />
+                <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Sensitivity" ColumnName="Sensitivity" />
+                <ScalarProperty Name="VMUName" ColumnName="VMUName" />
+                <ScalarProperty Name="NCAID" ColumnName="NCAID" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ResetCurrentPassword" FunctionName="SmartMonitoringModel.Store.ResetCurrentPassword" />
+          <FunctionImportMapping FunctionImportName="GetRecordedDataByPointID" FunctionName="SmartMonitoringModel.Store.GetRecordedDataByPointID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartMonitoringModel.GetRecordedDataByPointID_Result">
+                <ScalarProperty Name="RecordID" ColumnName="RecordID" />
+                <ScalarProperty Name="RecordedTime" ColumnName="RecordedTime" />
+                <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="AlarmID" ColumnName="AlarmID" />
+                <ScalarProperty Name="OverallUnit" ColumnName="OverallUnit" />
+                <ScalarProperty Name="OverallSensor1" ColumnName="OverallSensor1" />
+                <ScalarProperty Name="OverallSensor2" ColumnName="OverallSensor2" />
+                <ScalarProperty Name="OverallSensor3" ColumnName="OverallSensor3" />
+                <ScalarProperty Name="OverallSensor4" ColumnName="OverallSensor4" />
+                <ScalarProperty Name="OverallSensor5" ColumnName="OverallSensor5" />
+                <ScalarProperty Name="OverallSensor6" ColumnName="OverallSensor6" />
+                <ScalarProperty Name="OverallSensor7" ColumnName="OverallSensor7" />
+                <ScalarProperty Name="OverallSensor8" ColumnName="OverallSensor8" />
+                <ScalarProperty Name="Time_X1" ColumnName="Time_X1" />
+                <ScalarProperty Name="Time_X2" ColumnName="Time_X2" />
+                <ScalarProperty Name="Time_X3" ColumnName="Time_X3" />
+                <ScalarProperty Name="Time_X4" ColumnName="Time_X4" />
+                <ScalarProperty Name="Time_X5" ColumnName="Time_X5" />
+                <ScalarProperty Name="Time_X6" ColumnName="Time_X6" />
+                <ScalarProperty Name="Time_X7" ColumnName="Time_X7" />
+                <ScalarProperty Name="Time_X8" ColumnName="Time_X8" />
+                <ScalarProperty Name="Time_Y1" ColumnName="Time_Y1" />
+                <ScalarProperty Name="Time_Y2" ColumnName="Time_Y2" />
+                <ScalarProperty Name="Time_Y3" ColumnName="Time_Y3" />
+                <ScalarProperty Name="Time_Y4" ColumnName="Time_Y4" />
+                <ScalarProperty Name="Time_Y5" ColumnName="Time_Y5" />
+                <ScalarProperty Name="Time_Y6" ColumnName="Time_Y6" />
+                <ScalarProperty Name="Time_Y7" ColumnName="Time_Y7" />
+                <ScalarProperty Name="Time_Y8" ColumnName="Time_Y8" />
+                <ScalarProperty Name="FFT_X1" ColumnName="FFT_X1" />
+                <ScalarProperty Name="FFT_X2" ColumnName="FFT_X2" />
+                <ScalarProperty Name="FFT_X3" ColumnName="FFT_X3" />
+                <ScalarProperty Name="FFT_X4" ColumnName="FFT_X4" />
+                <ScalarProperty Name="FFT_X5" ColumnName="FFT_X5" />
+                <ScalarProperty Name="FFT_X6" ColumnName="FFT_X6" />
+                <ScalarProperty Name="FFT_X7" ColumnName="FFT_X7" />
+                <ScalarProperty Name="FFT_X8" ColumnName="FFT_X8" />
+                <ScalarProperty Name="FFT_Y1" ColumnName="FFT_Y1" />
+                <ScalarProperty Name="FFT_Y2" ColumnName="FFT_Y2" />
+                <ScalarProperty Name="FFT_Y3" ColumnName="FFT_Y3" />
+                <ScalarProperty Name="FFT_Y4" ColumnName="FFT_Y4" />
+                <ScalarProperty Name="FFT_Y5" ColumnName="FFT_Y5" />
+                <ScalarProperty Name="FFT_Y6" ColumnName="FFT_Y6" />
+                <ScalarProperty Name="FFT_Y7" ColumnName="FFT_Y7" />
+                <ScalarProperty Name="FFT_Y8" ColumnName="FFT_Y8" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tblOveralldatas">
+            <EntityTypeMapping TypeName="SmartMonitoringModel.tblOveralldata">
+              <MappingFragment StoreEntitySet="tblOveralldata">
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="Overallvalue" ColumnName="Overallvalue" />
+                <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+                <ScalarProperty Name="RecordID" ColumnName="RecordID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRecordedDatas">
+            <EntityTypeMapping TypeName="SmartMonitoringModel.tblRecordedData">
+              <MappingFragment StoreEntitySet="tblRecordedData">
+                <ScalarProperty Name="OverallSensor8" ColumnName="OverallSensor8" />
+                <ScalarProperty Name="OverallSensor7" ColumnName="OverallSensor7" />
+                <ScalarProperty Name="OverallSensor6" ColumnName="OverallSensor6" />
+                <ScalarProperty Name="OverallSensor5" ColumnName="OverallSensor5" />
+                <ScalarProperty Name="OverallSensor4" ColumnName="OverallSensor4" />
+                <ScalarProperty Name="OverallSensor3" ColumnName="OverallSensor3" />
+                <ScalarProperty Name="OverallSensor2" ColumnName="OverallSensor2" />
+                <ScalarProperty Name="OverallSensor1" ColumnName="OverallSensor1" />
+                <ScalarProperty Name="AlarmID" ColumnName="AlarmID" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+                <ScalarProperty Name="RecordedTime" ColumnName="RecordedTime" />
+                <ScalarProperty Name="RecordID" ColumnName="RecordID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetRecordedTimeByPointID" FunctionName="SmartMonitoringModel.Store.GetRecordedTimeByPointID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartMonitoringModel.GetRecordedTimeByPointID_Result">
+                <ScalarProperty Name="RecordID" ColumnName="RecordID" />
+                <ScalarProperty Name="RecordedTime" ColumnName="RecordedTime" />
+                <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="AlarmID" ColumnName="AlarmID" />
+                <ScalarProperty Name="OverallSensor1" ColumnName="OverallSensor1" />
+                <ScalarProperty Name="OverallSensor2" ColumnName="OverallSensor2" />
+                <ScalarProperty Name="OverallSensor3" ColumnName="OverallSensor3" />
+                <ScalarProperty Name="OverallSensor4" ColumnName="OverallSensor4" />
+                <ScalarProperty Name="OverallSensor5" ColumnName="OverallSensor5" />
+                <ScalarProperty Name="OverallSensor6" ColumnName="OverallSensor6" />
+                <ScalarProperty Name="OverallSensor7" ColumnName="OverallSensor7" />
+                <ScalarProperty Name="OverallSensor8" ColumnName="OverallSensor8" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetOverallByRecordID" FunctionName="SmartMonitoringModel.Store.GetOverallByRecordID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartMonitoringModel.GetOverallByRecordID_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RecordID" ColumnName="RecordID" />
+                <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+                <ScalarProperty Name="Overallvalue" ColumnName="Overallvalue" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

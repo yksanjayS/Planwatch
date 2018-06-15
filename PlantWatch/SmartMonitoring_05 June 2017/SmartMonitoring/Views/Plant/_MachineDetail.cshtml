@@ -1,0 +1,88 @@
+﻿@model SmartMonitoring.Models.Machine
+
+@{
+    var status = TempData["NodeAvailability"];
+}
+@using (Html.BeginForm("EditMachine", "Plant", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="row">
+        <div class="row">
+            <legend class="navbar-left" style="width:80%">Machine Information</legend>
+            <a href="@Url.Action("AddPoint", "Plant", new { area = "Categories"})" data-toggle="modal" data-target="#myModal" data-modal="myModal" title="Add New Point" class="btn btn-success navbar-right" style="margin-top:5px;">
+                Add New Point
+            </a>
+        </div>
+        @if (status == null)
+        {
+            <div class="row">
+                <div class="form-group">
+                    @Html.RequiredLabelFor(model => model.MachineName, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.MachineName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.MachineName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MachineDetails, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.MachineDetails, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.MachineDetails, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.RPMDriven, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.RPMDriven, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.RPMDriven, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PulseRevolution, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.PulseRevolution, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PulseRevolution, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                              
+                <div class="form-group">
+                    <div class="col-md-offset-3 col-md-2">
+                        <input type="submit" value="Save Changes" class="btn btn-success" />
+                    </div>
+                    @Html.ActionLink("Delete", "DeleteSelectedNode", "Plant", new { @class = "btn btn-danger navbar-left" })
+                </div>
+            </div> }
+        else
+        {
+            <div class="row">
+                <div>
+                    <p class="col-md-offset-1" style="text-align:center;margin-top:10px;">@status</p>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+<script>
+    $(function () {
+        $.ajaxSetup({ cache: false });
+        $("a[data-modal]").on("click", function (e) {
+            $('#myModalContent').load(this.href, function () {
+                $('#myModal').toggle();
+                $('#myModal').modal({
+                    /*backdrop: 'static',*/
+                    keyboard: true
+                }, 'show');
+            });
+            return false;
+        });
+    });
+
+    function closeModal() {
+        $('#myModal').toggle();
+    }
+</script>

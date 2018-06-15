@@ -1,0 +1,35 @@
+﻿@*@using Microsoft.AspNet.Identity*@
+@if (Session["LoginID"] != null)
+{
+    using (Html.BeginForm("LogOff", "User", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="nav navbar-nav">
+            <ul class="nav navbar-nav navbar-right" style="display:inline">
+                <li class="dropdown user" id="header-user">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="chevron-circle-right username" style="font-family: Verdana; font-style: normal; font-weight: 400; color: chartreuse">
+                           Hello @Session["UserName"]
+                        </span>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        @*<li><a href="@Url.Action("AccountDetail", "User", new { area = "", userName = Session["UserName"] })"><i class="fa fa-cog"></i>Account Detail</a></li>*@
+                        <li><a href="@Url.Action("UserProfile", "User", new { area = "", userName = Session["UserName"] })"><i class="fa fa-user"></i>My Profile</a></li>
+                        <li><a href="@Url.Action("ResetPassword", "User", new { area = "", userName = Session["UserName"] })"><i class="fa fa-lock"></i>Change Password</a></li>
+                        <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-power-off"></i>Sign out</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+            </ul>
+        </div>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Register", "Register", "User", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "User", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+   
+}

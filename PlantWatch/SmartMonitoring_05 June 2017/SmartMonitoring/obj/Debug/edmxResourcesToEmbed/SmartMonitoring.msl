@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SmartMonitoringModelStoreContainer" CdmEntityContainer="SmartMonitoringEntities">
+    <EntitySetMapping Name="tblAreas">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.tblArea">
+        <MappingFragment StoreEntitySet="tblArea">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="AreaDetail" ColumnName="AreaDetail" />
+          <ScalarProperty Name="NumberOfTrains" ColumnName="NumberOfTrains" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblLogins">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.tblLogin">
+        <MappingFragment StoreEntitySet="tblLogin">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+          <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMachines">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.tblMachine">
+        <MappingFragment StoreEntitySet="tblMachine">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+          <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+          <ScalarProperty Name="MachineDetails" ColumnName="MachineDetails" />
+          <ScalarProperty Name="RPMDriven" ColumnName="RPMDriven" />
+          <ScalarProperty Name="PulseRevolution" ColumnName="PulseRevolution" />
+          <ScalarProperty Name="MachineImages" ColumnName="MachineImages" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPlants">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.tblPlant">
+        <MappingFragment StoreEntitySet="tblPlant">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PlantID" ColumnName="PlantID" />
+          <ScalarProperty Name="PlantName" ColumnName="PlantName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="PlantDetails" ColumnName="PlantDetails" />
+          <ScalarProperty Name="NoOfArea" ColumnName="NoOfArea" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPoints">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.tblPoint">
+        <MappingFragment StoreEntitySet="tblPoint">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PointID" ColumnName="PointID" />
+          <ScalarProperty Name="PointName" ColumnName="PointName" />
+          <ScalarProperty Name="PointDetails" ColumnName="PointDetails" />
+          <ScalarProperty Name="NoOfSensors" ColumnName="NoOfSensors" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSensors">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.tblSensor">
+        <MappingFragment StoreEntitySet="tblSensor">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="SensorName" ColumnName="SensorName" />
+          <ScalarProperty Name="SensorDirection" ColumnName="SensorDirection" />
+          <ScalarProperty Name="SensorType" ColumnName="SensorType" />
+          <ScalarProperty Name="AcquisitionID" ColumnName="AcquisitionID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblTrains">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.tblTrain">
+        <MappingFragment StoreEntitySet="tblTrain">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TrainID" ColumnName="TrainID" />
+          <ScalarProperty Name="TrainName" ColumnName="TrainName" />
+          <ScalarProperty Name="NumberOfMachines" ColumnName="NumberOfMachines" />
+          <ScalarProperty Name="DriveUnitName" ColumnName="DriveUnitName" />
+          <ScalarProperty Name="IntermediateUnitName" ColumnName="IntermediateUnitName" />
+          <ScalarProperty Name="DrivenUnitName" ColumnName="DrivenUnitName" />
+          <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUserRegisters">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.tblUserRegister">
+        <MappingFragment StoreEntitySet="tblUserRegister">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="Userrole" ColumnName="Userrole" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+          <ScalarProperty Name="Companyname" ColumnName="Companyname" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserProfiles">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.UserProfile">
+        <MappingFragment StoreEntitySet="UserProfile">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="webpages_Membership">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.webpages_Membership">
+        <MappingFragment StoreEntitySet="webpages_Membership">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ConfirmationToken" ColumnName="ConfirmationToken" />
+          <ScalarProperty Name="IsConfirmed" ColumnName="IsConfirmed" />
+          <ScalarProperty Name="LastPasswordFailureDate" ColumnName="LastPasswordFailureDate" />
+          <ScalarProperty Name="PasswordFailuresSinceLastSuccess" ColumnName="PasswordFailuresSinceLastSuccess" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PasswordChangedDate" ColumnName="PasswordChangedDate" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="PasswordVerificationToken" ColumnName="PasswordVerificationToken" />
+          <ScalarProperty Name="PasswordVerificationTokenExpirationDate" ColumnName="PasswordVerificationTokenExpirationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="webpages_OAuthMembership">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.webpages_OAuthMembership">
+        <MappingFragment StoreEntitySet="webpages_OAuthMembership">
+          <ScalarProperty Name="Provider" ColumnName="Provider" />
+          <ScalarProperty Name="ProviderUserId" ColumnName="ProviderUserId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="webpages_Roles">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.webpages_Roles">
+        <MappingFragment StoreEntitySet="webpages_Roles">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblMeasurementSetups">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.tblMeasurementSetup">
+        <MappingFragment StoreEntitySet="tblMeasurementSetup">
+          <ScalarProperty Name="SetupID" ColumnName="SetupID" />
+          <ScalarProperty Name="SetupName" ColumnName="SetupName" />
+          <ScalarProperty Name="SetupType" ColumnName="SetupType" />
+          <ScalarProperty Name="SpectrumSchedule" ColumnName="SpectrumSchedule" />
+          <ScalarProperty Name="BandAlarmID" ColumnName="BandAlarmID" />
+          <ScalarProperty Name="EnvelopeAlarmID" ColumnName="EnvelopeAlarmID" />
+          <ScalarProperty Name="TrendAlarmID" ColumnName="TrendAlarmID" />
+          <ScalarProperty Name="TrendSchedule" ColumnName="TrendSchedule" />
+          <ScalarProperty Name="SpectrumUnit" ColumnName="SpectrumUnit" />
+          <ScalarProperty Name="TimeUnit" ColumnName="TimeUnit" />
+          <ScalarProperty Name="SpectrumDataUnit" ColumnName="SpectrumDataUnit" />
+          <ScalarProperty Name="TimeDataUnit" ColumnName="TimeDataUnit" />
+          <ScalarProperty Name="FaultFrequency" ColumnName="FaultFrequency" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPlantMasters">
+      <EntityTypeMapping TypeName="SmartMonitoringModel.tblPlantMaster">
+        <MappingFragment StoreEntitySet="tblPlantMaster">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+          <ScalarProperty Name="PointID" ColumnName="PointID" />
+          <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+          <ScalarProperty Name="TrainID" ColumnName="TrainID" />
+          <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+          <ScalarProperty Name="PlantID" ColumnName="PlantID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="webpages_UsersInRoles" TypeName="SmartMonitoringModel.webpages_UsersInRoles" StoreEntitySet="webpages_UsersInRoles">
+      <EndProperty Name="webpages_Roles">
+        <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="UserProfile">
+        <ScalarProperty Name="UserId" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="AddArea" FunctionName="SmartMonitoringModel.Store.AddArea" />
+    <FunctionImportMapping FunctionImportName="AddMachine" FunctionName="SmartMonitoringModel.Store.AddMachine" />
+    <FunctionImportMapping FunctionImportName="AddPlant" FunctionName="SmartMonitoringModel.Store.AddPlant" />
+    <FunctionImportMapping FunctionImportName="AddPoint" FunctionName="SmartMonitoringModel.Store.AddPoint" />
+    <FunctionImportMapping FunctionImportName="AddSensor" FunctionName="SmartMonitoringModel.Store.AddSensor" />
+    <FunctionImportMapping FunctionImportName="AddTrain" FunctionName="SmartMonitoringModel.Store.AddTrain" />
+    <FunctionImportMapping FunctionImportName="AddUser" FunctionName="SmartMonitoringModel.Store.AddUser" />
+    <FunctionImportMapping FunctionImportName="CheckUserForLogin" FunctionName="SmartMonitoringModel.Store.CheckUserForLogin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.CheckUserForLogin_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+          <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+          <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DeletePlant" FunctionName="SmartMonitoringModel.Store.DeletePlant" />
+    <FunctionImportMapping FunctionImportName="GetPlant" FunctionName="SmartMonitoringModel.Store.GetPlant">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.GetPlant_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PlantID" ColumnName="PlantID" />
+          <ScalarProperty Name="PlantName" ColumnName="PlantName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="PlantDetails" ColumnName="PlantDetails" />
+          <ScalarProperty Name="NoOfArea" ColumnName="NoOfArea" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getUserDetail" FunctionName="SmartMonitoringModel.Store.getUserDetail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SmartMonitoringModel.getUserDetail_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="Userrole" ColumnName="Userrole" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+          <ScalarProperty Name="Companyname" ColumnName="Companyname" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UpdatePlant" FunctionName="SmartMonitoringModel.Store.UpdatePlant" />
+    <FunctionImportMapping FunctionImportName="updateUserProfile" FunctionName="SmartMonitoringModel.Store.updateUserProfile" />
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,79 @@
+﻿@model SmartMonitoring.Models.Train
+
+@using (Html.BeginForm("AddTrain", "Plant", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row" style="margin-top:10px;">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.ParentID, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.ParentID, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+                @Html.ValidationMessageFor(model => model.ParentID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.RequiredLabelFor(model => model.TrainName, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.TrainName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TrainName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.RequiredLabelFor(model => model.NumberOfMachines, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DropDownList("NumberOfMachines", new List<SelectListItem>{
+                    new SelectListItem{ Text="1", Value = "1" },
+                     new SelectListItem{ Text="2", Value = "2" },
+                      new SelectListItem{ Text="3", Value = "3" },
+                       new SelectListItem{ Text="4", Value = "4" },
+                        new SelectListItem{ Text="5", Value = "5" },
+                         new SelectListItem{ Text="6", Value = "6" },
+                          new SelectListItem{ Text="7", Value = "7" },
+                           new SelectListItem{ Text="8", Value = "8" },
+                         new SelectListItem{ Text="9", Value = "9" },
+                          new SelectListItem{ Text="10", Value = "10" },
+                           new SelectListItem{ Text="10+", Value = "10+" }
+                 }, "Select no of Machine", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.NumberOfMachines, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.RequiredLabelFor(model => model.DriveUnitName, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DropDownList("DriveUnitName", new List<SelectListItem>{
+                    new SelectListItem{ Text = "Motor", Value = "Motor"  },
+                     new SelectListItem{ Text = "Engine", Value = "Engine" },
+                      new SelectListItem{ Text = "Turbine", Value = "Turbine" }
+                 }, "Select Drive Unit", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DriveUnitName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.RequiredLabelFor(model => model.DrivenUnitName, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DropDownList("DrivenUnitName", new List<SelectListItem>{
+                    new SelectListItem{ Text = "Gear Box Two Stage", Value = "Gear Box Two Stage"  },
+                     new SelectListItem{ Text = "Gear Box Three Stage", Value = "Gear Box Three Stage"},
+                      new SelectListItem{ Text = "Fan", Value = "Fan" },
+                       new SelectListItem{ Text = "Pump", Value = "Pump"  },
+                        new SelectListItem{  Text = "Crusher", Value = "Crusher"  },
+                         new SelectListItem{ Text = "Compressor ", Value = "Compressor"}
+                 }, "Select Driven Unit", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DrivenUnitName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-9">
+                <input type="submit" value="Save Detail" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+

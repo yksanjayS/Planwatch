@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title -Remote Vibration Monitoring</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    @*<script src="~/Scripts/jquery-3.1.1.js"></script>*@
+    <link href="~/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container" style="padding-top:10px;">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Smart Monitoring", "Index", "Home", null, new { @class = "navbar-brand", style = "font-size:22px;" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="@Url.Action("Index", "Home")" style="font-size:large;">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("PlantIndex", "Plant")" style="font-size:large;">
+                            Plant
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("DashboardIndex", "Dashboard")" style="font-size:large;">
+                            Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Contacts", "Contact")" style="font-size:large;">
+                            Contact us
+                        </a>
+                    </li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="body-content">
+        @RenderBody()
+    </div>
+    <div class="navbar-fixed-bottom" style="background-color:#eee;">
+        <div class="container">
+            <footer>
+                <div class="center" style="padding-top:5px;">
+                    <p style="text-align:center;color:red;">&copy; <a style="color:#337ab7;" href="http://www.vibration-service.com" title="" target="_blank">@DateTime.Now.Year - ITI Technology.</a> All Right Reserved.</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

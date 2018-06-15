@@ -1,0 +1,131 @@
+﻿@model SmartMonitoring.Models.Plant
+
+@{
+    var status = TempData["NodeAvailability"];
+}
+@using (Html.BeginForm("EditPlant", "Plant", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="row">
+        <div class="row">
+            <legend class="navbar-left" style="width:80%">Plant Information</legend>
+            @*<a href="@Url.Action("AddPlant", "Plant", new { area = "Categories"})" data-toggle="modal" data-target="#myModal" data-modal="myModal" title="Add New Plant" class="btn btn-success navbar-right" style="margin-top:5px;margin-left:5px;">
+                Add New Plant
+            </a>*@
+            <a href="@Url.Action("AddArea", "Plant", new { area = "Categories",PlantID = Model.PlantID})" data-toggle="modal" data-target="#myModal" data-modal="myModal" title="Add New Area" class="btn btn-success navbar-right" style="margin-top:5px;margin-right:5px;">
+                Add New Area
+            </a>
+       
+        </div>
+        @if (status == null)
+        {
+        <div class="row">
+        
+            <div class="form-group">
+                <input id="PlantID" type="hidden" value="@Model.PlantID" />
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PlantName, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.PlantName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.PlantName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ContactNo, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.ContactNo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ContactNo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FaxNo, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.FaxNo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FaxNo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Website, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.Website, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Website, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NumberOfArea, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.DropDownList("NumberOfArea", new List<SelectListItem>{
+                    new SelectListItem{ Text="1", Value = "1" },
+                     new SelectListItem{ Text="2", Value = "2" },
+                      new SelectListItem{ Text="3", Value = "3" },
+                       new SelectListItem{ Text="4", Value = "4" },
+                        new SelectListItem{ Text="5", Value = "5" },
+                         new SelectListItem{ Text="6", Value = "6" },
+                          new SelectListItem{ Text="7", Value = "7" },
+                           new SelectListItem{ Text="8", Value = "8" },
+                         new SelectListItem{ Text="9", Value = "9" },
+                          new SelectListItem{ Text="10", Value = "10" },
+                           new SelectListItem{ Text="10+", Value = "10+" }
+                 }, "Select no of Area", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.NumberOfArea, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PlantDetails, htmlAttributes: new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.TextAreaFor(model => model.PlantDetails, 5,25, new {  @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.PlantDetails, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-3 col-md-2">
+                    <input type="submit" value="Save Changes" class="btn btn-success" />
+                </div>
+                @Html.ActionLink("Delete", "DeleteSelectedNode", "Plant", new { @class = "btn btn-danger navbar-left" })
+            </div>
+        </div> }
+        else
+        {
+        <div class="row">
+            <div>
+                <p class="col-md-offset-1" style="text-align:center;margin-top:10px;">@status</p>
+            </div>
+        </div>
+        }
+    </div>
+}
+<script>
+    $(function () {
+        $.ajaxSetup({ cache: false });
+        $("a[data-modal]").on("click", function (e) {
+            $('#myModalContent').load(this.href, function () {
+                $('#myModal').toggle();
+                $('#myModal').modal({
+                    /*backdrop: 'static',*/
+                    keyboard: true
+                }, 'show');
+            });
+            return false;
+        });
+    });
+
+    function closeModal() {
+        $('#myModal').toggle();
+    }
+</script>

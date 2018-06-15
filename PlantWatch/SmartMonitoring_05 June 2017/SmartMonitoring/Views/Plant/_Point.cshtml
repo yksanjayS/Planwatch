@@ -1,0 +1,57 @@
+﻿@model SmartMonitoring.Models.Point
+<legend class="navbar-static-top" style="width:70%">Add New Point</legend>
+
+@using (Html.BeginForm("AddPoint", "Plant", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row" style="margin-top:10px;">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.ParentID, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.ParentID, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+                @Html.ValidationMessageFor(model => model.ParentID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.RequiredLabelFor(model => model.PointName, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.PointName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PointName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.RequiredLabelFor(model => model.PointDetails, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.PointDetails, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PointDetails, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.RequiredLabelFor(model => model.NoOfSensors, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.DropDownList("NoOfSensors", new List<SelectListItem>{
+                    new SelectListItem{ Text="1", Value = "1" },
+                     new SelectListItem{ Text="2", Value = "2" },
+                      new SelectListItem{ Text="3", Value = "3" },
+                       new SelectListItem{ Text="4", Value = "4" },
+                        new SelectListItem{ Text="5", Value = "5" },
+                         new SelectListItem{ Text="6", Value = "6" },
+                          new SelectListItem{ Text="7", Value = "7" },
+                           new SelectListItem{ Text="8", Value = "8" },
+
+                 }, "Select no. of Sensors", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.NoOfSensors, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-3 col-md-9">
+                <input type="submit" value="Save Details" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}

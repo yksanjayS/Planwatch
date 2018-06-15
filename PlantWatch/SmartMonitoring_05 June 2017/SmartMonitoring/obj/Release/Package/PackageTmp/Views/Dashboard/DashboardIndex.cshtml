@@ -1,0 +1,120 @@
+﻿@model List<SmartMonitoring.Models.Plant>
+
+@{
+    ViewBag.Title = "Plant";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/themes/smoothness/jquery-ui-1.10.4.min.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="~/Content/jquery.jqChart.css" />
+<link rel="stylesheet" type="text/css" href="~/Content/jquery.jqRangeSlider.css" />
+<script src="~/Scripts/jquery.mousewheel.js"></script>
+<script src="~/Scripts/jquery.jqRangeSlider.min.js"></script>
+<script src="~/Scripts/excanvas.js"></script>
+
+@section scripts{
+    @Styles.Render("~/Content/jsTree/themes/proton/style.min.css")
+    @Scripts.Render("~/Scripts/jsTree3/jstree.min.js")
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<div class="container">
+    <h4 id="lblDisplay"> Dashboard</h4>
+    <legend></legend>
+    <div class="row">
+        <div class="col-md-3" style="padding-bottom:5px;padding-top:5px;padding-left:0px;">
+            <div style="margin-bottom:3px;">
+            </div>
+            <div id="Chart_Tree">
+                @*@{ Html.RenderAction("GetPlantHierarchy"); }*@
+            </div>
+        </div>
+        <div class="col-md-9" style="border-left:solid 1px #4f9ae6;">
+            <div id="chart_display" class="row">
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var selectednode = null;
+    var selectedNodeText = null;
+    $(document).ready(function () {
+        function addEventListener() {
+            $("#Chart_Tree").on("select_node.jstree", function (event, node) {
+                selectednode = node.instance.get_selected();
+                if (selectednode.length === 1) {
+                    var nodetext = $('.jstree-clicked').text();
+                    ShowChart(selectednode, nodetext);
+
+                } else if (selectednode.length > 1) {
+                    alert("You have not selected anything !");
+                }
+            });
+        }
+        $(function () {
+            $('#Chart_Tree').jstree({
+                core: {
+                    themes: {
+                        'name': 'proton',
+                        'responsive': true,
+                        'check_callback': true
+                    },
+                    data: {
+                        dataType: "json",
+                        url: "/Plant/CreateTreeView",
+                        async: true
+                    }
+                    //rules: {
+                    //    metadata: "mdata",
+                    //    use_inline: true,
+                    //    clickable: ["all"],
+                    //    deletable: ["all"],
+                    //    renameable: ["all"],
+                    //    creatable: ["all"],
+                    //    draggable: ["all"],
+                    //    dragrules: ["child * child", "child inside root", "tree-drop inside root"],
+                    //    createat: ["top"],
+                    //    drag_button: "left",
+                    //    droppable: ["tree-drop"]
+                    //}
+                },
+                plugins: ["themes", "json_data", "ui", "state"]
+            });
+            addEventListener();
+        });
+    });
+
+    $(function () {
+        $.ajaxSetup({ cache: false });
+        $("a[data-modal]").on("click", function (e) {
+            $('#myModalContent').load(this.href, function () {
+                $('#myModal').toggle();
+                $('#myModal').modal({
+                    /*backdrop: 'static',*/
+                    keyboard: true
+                }, 'show');
+            });
+            return false;
+        });
+    });
+
+    function closeModal() {
+        $('#myModal').toggle();
+    }
+
+    //////////////////////// Function for show detail of selected Node////////////////////////
+
+    function ShowChart(nodeid, nodetext) {
+        $.ajax({
+            url: '/Dashboard/GetChartForSelectedNode',
+            type: 'POST',
+            data: { 'nodeid': nodeid, 'nodetext': nodetext },
+            success: function (data) {
+                $('#chart_display').html('');
+                $('#chart_display').html(data);
+            }
+        });
+    }
+</script>
+
+

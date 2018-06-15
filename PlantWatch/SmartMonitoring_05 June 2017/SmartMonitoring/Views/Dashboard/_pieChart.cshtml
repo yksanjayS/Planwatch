@@ -1,0 +1,54 @@
+﻿@model IEnumerable<SmartMonitoring.Models.Dashboard>
+@using JQChart.Web.Mvc;
+@{
+    var chartTitle = ViewBag.Title;
+}
+
+<div class="row">
+    <div id="chartDiv" class="row">
+
+        @(Html.JQChart()
+                        .Chart(Model)
+                        .ID("pieChart")
+                        .Height(300)
+                        .Title((string)chartTitle)
+                        .Legend(legend => legend.Title("Alarms"))
+                        .Border(border => border.StrokeStyle("lightgray"))
+                        .Background(background => background.LinearGradient().ColorStops(stop =>
+                        {
+                            stop.Add(0, "white");
+                            stop.Add(1, "white");
+                        }))
+                        .Animation(TimeSpan.FromSeconds(1))
+                        .Shadows(false)
+                        .Series(series =>
+                        {
+                            series.Pie()
+                                  .ExplodedRadius(10)
+                                  .FillStyles(new object[] { "Red", "Yellow", "Green" })
+                                  .DataLabels(el => el.Label)
+                                  .DataValues(el => el.Value1)
+                                  .ExplodedSlices(new object[] { 5 })
+                                  .Labels(label => label.StringFormat("%.1f%%")
+                                                        .Font("15px sans-serif")
+                                                        .ValueType(LabelValueType.Percentage)
+                                                        .FillStyle(System.Drawing.Color.Blue));
+                        }
+                        )
+                        .Render()
+        )
+    </div>
+</div>
+
+<script lang="javascript" type="text/javascript">
+    $(document).ready(function () {
+        $('#pieChart').bind('tooltipFormat', function (e, data) {
+            var percentage = data.series.getPercentage(data.value);
+            percentage = data.chart.stringFormat(percentage, '%.2f%%');
+            return '<b>' + data.dataItem[0] + '</b><br />' +
+                       data.value + ' (' + percentage + ')';
+        });
+    });
+</script>
+
+

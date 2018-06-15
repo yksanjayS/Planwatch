@@ -1,0 +1,70 @@
+﻿@model IEnumerable<SmartMonitoring.Models.tblPlantMaster>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PointID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MachineID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblArea.AreaName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblPlant.PlantName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblTrain.TrainName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblUserRegister.FirstName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PointID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MachineID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblArea.AreaName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblPlant.PlantName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblTrain.TrainName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblUserRegister.FirstName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SensorID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SensorID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SensorID })
+        </td>
+    </tr>
+}
+
+</table>

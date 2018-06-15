@@ -1,0 +1,299 @@
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\SmartMonitoring.dll.config
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\SmartMonitoring.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\SmartMonitoring.pdb
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Antlr3.Runtime.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\EntityFramework.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\EntityFramework.SqlServer.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Security.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Microsoft.Web.Helpers.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Newtonsoft.Json.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Owin.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\System.Web.Helpers.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\System.Web.Mvc.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\System.Web.Optimization.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\System.Web.Razor.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\System.Web.WebPages.Deployment.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\System.Web.WebPages.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\System.Web.WebPages.Razor.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\WebGrease.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\WebMatrix.Data.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\WebMatrix.WebData.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Antlr3.Runtime.pdb
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\EntityFramework.xml
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\EntityFramework.SqlServer.xml
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\System.Web.Helpers.xml
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\System.Web.Mvc.xml
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\System.Web.Razor.xml
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\System.Web.WebPages.xml
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\System.Web.WebPages.Deployment.xml
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\System.Web.WebPages.Razor.xml
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\System.Web.Optimization.xml
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Newtonsoft.Json.xml
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\WebMatrix.Data.xml
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\WebMatrix.WebData.xml
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.xml
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Security.xml
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\obj\Debug\SmartMonitoring.dll
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\obj\Debug\SmartMonitoring.pdb
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\obj\Debug\SmartMonitoring.csprojResolveAssemblyReference.cache
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\obj\Debug\SmartMonitoring.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\obj\Debug\SmartMonitoring.pdb
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\SmartMonitoring.dll.config
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\SmartMonitoring.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\SmartMonitoring.pdb
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Antlr3.Runtime.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\EntityFramework.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\EntityFramework.SqlServer.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Security.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Microsoft.Web.Helpers.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Newtonsoft.Json.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Owin.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\System.Web.Helpers.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\System.Web.Mvc.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\System.Web.Optimization.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\System.Web.Razor.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\System.Web.WebPages.Deployment.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\System.Web.WebPages.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\System.Web.WebPages.Razor.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\WebGrease.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\WebMatrix.Data.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\WebMatrix.WebData.dll
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Antlr3.Runtime.pdb
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\EntityFramework.xml
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\EntityFramework.SqlServer.xml
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\System.Web.Helpers.xml
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\System.Web.Mvc.xml
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\System.Web.Razor.xml
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\System.Web.WebPages.xml
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\System.Web.WebPages.Deployment.xml
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\System.Web.WebPages.Razor.xml
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\System.Web.Optimization.xml
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Newtonsoft.Json.xml
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\WebMatrix.Data.xml
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\WebMatrix.WebData.xml
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.xml
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Security.xml
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\rohit_000\Desktop\smartmonitoring 1may\SmartMonitoring\SmartMonitoring\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\vimal\Desktop\SmartMonitoring\SmartMonitoring\obj\Debug\SmartMonitoring.csprojResolveAssemblyReference.cache
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\SmartMonitoring.dll.config
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\SmartMonitoring.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\SmartMonitoring.pdb
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Antlr3.Runtime.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\EntityFramework.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\EntityFramework.SqlServer.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.AspNet.Identity.Core.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.Cookies.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.Facebook.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.Google.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.OAuth.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.Twitter.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Web.Helpers.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Web.Infrastructure.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Newtonsoft.Json.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Owin.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.Helpers.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.Mvc.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.Optimization.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.Razor.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.WebPages.Deployment.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.WebPages.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.WebPages.Razor.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\WebGrease.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\WebMatrix.Data.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\WebMatrix.WebData.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Antlr3.Runtime.pdb
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\EntityFramework.xml
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\EntityFramework.SqlServer.xml
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.Helpers.xml
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.Mvc.xml
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.Razor.xml
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.WebPages.xml
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.WebPages.Deployment.xml
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.WebPages.Razor.xml
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.Optimization.xml
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Newtonsoft.Json.xml
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\WebMatrix.Data.xml
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\WebMatrix.WebData.xml
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.AspNet.Identity.Core.xml
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.xml
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.xml
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.Facebook.xml
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.Cookies.xml
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.OAuth.xml
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.Google.xml
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.Twitter.xml
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\obj\Debug\SmartMonitoring.csprojResolveAssemblyReference.cache
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\obj\Debug\SmartMonitoring.dll
+D:\All Backup\Smart Monitoring\SmartMonitoring_05 June 2017\SmartMonitoring\obj\Debug\SmartMonitoring.pdb
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\SmartMonitoring.dll.config
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\SmartMonitoring.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\SmartMonitoring.pdb
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Antlr3.Runtime.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\EntityFramework.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\EntityFramework.SqlServer.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.Google.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Web.Helpers.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Web.Infrastructure.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Newtonsoft.Json.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Owin.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.Helpers.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.Mvc.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.Optimization.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.Razor.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.WebPages.Deployment.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.WebPages.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.WebPages.Razor.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\WebGrease.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\WebMatrix.Data.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\WebMatrix.WebData.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Antlr3.Runtime.pdb
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\EntityFramework.xml
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\EntityFramework.SqlServer.xml
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.Helpers.xml
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.Mvc.xml
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.Razor.xml
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.WebPages.xml
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.WebPages.Deployment.xml
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.WebPages.Razor.xml
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.Optimization.xml
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Newtonsoft.Json.xml
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\WebMatrix.Data.xml
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\WebMatrix.WebData.xml
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.xml
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.xml
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.Google.xml
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\obj\Debug\SmartMonitoring.dll
+D:\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\obj\Debug\SmartMonitoring.pdb
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\SmartMonitoring.dll.config
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\SmartMonitoring.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\SmartMonitoring.pdb
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Antlr3.Runtime.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\EntityFramework.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\EntityFramework.SqlServer.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.AspNet.Identity.Core.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.Cookies.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.Facebook.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.Google.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.OAuth.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.Twitter.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Web.Helpers.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Web.Infrastructure.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Newtonsoft.Json.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Owin.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.Helpers.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.Mvc.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.Optimization.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.Razor.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.WebPages.Deployment.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.WebPages.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.WebPages.Razor.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\WebGrease.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\WebMatrix.Data.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\WebMatrix.WebData.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Antlr3.Runtime.pdb
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\EntityFramework.xml
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\EntityFramework.SqlServer.xml
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.Helpers.xml
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.Mvc.xml
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.Razor.xml
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.WebPages.xml
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.WebPages.Deployment.xml
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.WebPages.Razor.xml
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\System.Web.Optimization.xml
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Newtonsoft.Json.xml
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\WebMatrix.Data.xml
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\WebMatrix.WebData.xml
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.AspNet.Identity.Core.xml
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.xml
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.xml
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.Facebook.xml
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.Cookies.xml
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.OAuth.xml
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.Google.xml
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.Twitter.xml
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\obj\Debug\SmartMonitoring.csprojResolveAssemblyReference.cache
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\obj\Debug\SmartMonitoring.dll
+D:\SKY\Complete Handover_Vimal Kumar Yadav\PlantWatch\SmartMonitoring_05 June 2017\SmartMonitoring\obj\Debug\SmartMonitoring.pdb

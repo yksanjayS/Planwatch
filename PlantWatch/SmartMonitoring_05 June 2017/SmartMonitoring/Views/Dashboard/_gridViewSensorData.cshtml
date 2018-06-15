@@ -1,0 +1,41 @@
+﻿@model IEnumerable<SmartMonitoring.Models.RecordedData>
+
+@{var grid = new WebGrid(source: Model, ajaxUpdateContainerId: "overallGrid", canPage: true, rowsPerPage: 10);
+    grid.Pager(WebGridPagerModes.All);
+}
+
+<div id="gridClinic" class="row img-responsive" style="font-family: Calibri;margin-bottom:15px;">
+    @grid.GetHtml(tableStyle: "table webgrid-table",
+              headerStyle: "webgrid-header",
+              footerStyle: "webgrid-footer",
+              alternatingRowStyle: "webgrid-alternating-row",
+              selectedRowStyle: "webgrid-selected-row",
+              rowStyle: "webgrid-row-style",
+         columns: grid.Columns(
+       grid.Column(columnName: "TimeStamp", header: "Recorded Time"),
+           grid.Column(columnName: "OverAllUnit", header: "Unit"),
+                 grid.Column(columnName: "OA1", header: "Sensor 1"),
+                    grid.Column(columnName: "OA2", header: "Sensor 2"),
+                       grid.Column(columnName: "OA3", header: "Sensor 3"),
+                          grid.Column(columnName: "OA4", header: "Sensor 4"),
+                             grid.Column(columnName: "OA5", header: "Sensor 5"),
+                                grid.Column(columnName: "OA6", header: "Sensor 6"),
+                                   grid.Column(columnName: "OA7", header: "Sensor 7"),
+                                      grid.Column(columnName: "OA8", header: "Sensor 8")
+       ))
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#gridClinic > tbody > tr').each(function (index) {
+
+            alert
+
+            if ($(this).children('td:nth-child(4)').val() > 2) {
+                $(this).children('td:nth-child(4)').css("background-color", "#33CC99");
+            } else {
+                $(this).children('td:nth-child(4)').css("background-color", "#FFCC99");
+            }
+        });
+    });
+</script>
